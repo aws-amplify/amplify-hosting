@@ -1,3 +1,12 @@
-# Amplify Console
+<p align="center">
+  <a href="https://amplify.aws/community">
+    <img alt="Amplify" src="https://github.com/aws-amplify/community/blob/master/src/assets/images/logo-dark.png" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Amplify Console
+</h1>
 
-The AWS Amplify Console provides a Git-based workflow for deploying and hosting fullstack serverless web applications. A fullstack serverless app consists of a backend built with cloud resources such as GraphQL or REST APIs, file and data storage, and a frontend built with single page application frameworks such as React, Angular, Vue, or Gatsby. 
+## AWS Amplify Console Public Repository and Issue Tracker
+
+The AWS Amplify Console provides a Git-based workflow for deploying and hosting fullstack serverless web applications. We use this repository to share tools (e.g. our curated Docker image), and track issues and feature requests.
