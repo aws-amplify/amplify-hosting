@@ -4,9 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  Amplify Console
+  Amplify Console - Public Issue Tracker
 </h1>
-
-## AWS Amplify Console Public Repository and Issue Tracker
 
 The AWS Amplify Console provides a Git-based workflow for deploying and hosting fullstack serverless web applications. We use this repository to share tools (e.g. our curated Docker image), and track issues and feature requests.
