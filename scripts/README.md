@@ -2,4 +2,4 @@
 
 Helper scripts used by the Amplify Console:
 
-**amplifyPush.sh:** A helper script that manages the backend deployment part of the build.
+**amplifyPush.sh:** A helper script that runs the Amplify CLI during the backend deployment phase of the build.
