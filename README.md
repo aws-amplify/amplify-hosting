@@ -9,7 +9,7 @@
 
 The AWS Amplify Console provides a Git-based workflow for deploying and hosting fullstack serverless web applications. We will use this repository to share announcements, tools, track issues and feature requests, and create RFCs.
 
-### Report a bug 🐛or feature request 💡[here](https://github.com/aws-amplify/amplify-console/issues)
+### Report a bug 🐛or feature request 💡[here](https://github.com/aws-amplify/amplify-console/issues/new/choose)
 
 ### Bookmarks
 
