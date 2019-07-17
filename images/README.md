@@ -23,7 +23,7 @@ $ docker build -t amplify-console/buildimage:amazonlinux1 -f amazonlinux1/Docker
 
 Launch the latest Docker image locally:
 ```bash
-$ docker docker run -it amplify-console/buildimage:latest /bin/bash
+$ docker run -it amplify-console/buildimage:latest /bin/bash
 ```
 
 This will launch a container locally and drop you into the container with Bash.
