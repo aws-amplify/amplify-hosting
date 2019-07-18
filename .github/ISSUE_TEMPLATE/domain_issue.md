@@ -2,27 +2,27 @@
 name: Custom domain issue
 about: Got an issue connecting your domain?
 title: ''
-labels: ''
+labels: 'Custom domain'
 assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**App Id**:
+**Region**:
+**Step**:
+**Status**:
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+>**Note**: Do not include information that is sensitive in nature such as your domain name, company etc.
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Issue/question**
+A clear and concise description of what the issue/question is.
 
-**Additional context**
-Add any other context about the problem here.
+**Error message**
+If there is an error message, please include it here. 
+**Note**: Be sure to check the message for sensitive information. 
 
-**Sample code**
-Include additional sample code or a sample repository to help us reproduce the issue. (Be sure to remove any sensitive data)
+**Additional information**
+Please add any other relevant information. Please feel free to include screenshots.
+
+ additional sample code or a sample repository to help us reproduce the issue. (Be sure to remove any sensitive data)
 
