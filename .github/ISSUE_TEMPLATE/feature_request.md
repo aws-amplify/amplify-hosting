@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
+about: Have an idea for the Amplify Console? Submit a request.
 
 ---
 
