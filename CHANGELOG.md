@@ -2,7 +2,7 @@
 
 A chronological list of Amplify Console releases:
 
-- **11/26/2018** [Amplify Console Launch](https://aws.amazon.com/about-aws/whats-new/2018/11/announcing-aws-amplify-console/)
+- **11/26/2018** [Amplify Console Launch](https://aws.amazon.com/about-aws/whats-new/2018/11/announcing-aws-amplify-console/) |  [8 exciting features of Amplify Console](https://hackernoon.com/introducing-the-amplify-console-8-exciting-features-7e4075ff7b36)
 - **03/07/2019** [Instant cache invalidation](https://aws.amazon.com/about-aws/whats-new/2019/03/aws-amplify-console-adds-support-for-instant-cdn-cache-invalidation-and-delta-deployments/)
 - **04/04/2019** [One-click deploy button](https://aws.amazon.com/about-aws/whats-new/2019/04/aws-amplify-console-now-supports-deploying-fullstack-serverless-/)
 - **04/09/2019** [Region expansion](https://aws.amazon.com/about-aws/whats-new/2019/04/amplify-console-now-available-in-five-additional-regions/)
