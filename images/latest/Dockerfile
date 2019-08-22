@@ -12,7 +12,7 @@ ENV VERSION_BUNDLER=2.0.1
 ENV VERSION_RUBY_DEFAULT=$VERSION_RUBY_2_4
 ENV VERSION_HUGO=0.55.6
 ENV VERSION_YARN=1.16.0
-ENV VERSION_AMPLIFY=1.7.2
+ENV VERSION_AMPLIFY=1.12.0
 
 # UTF-8 Environment
 ENV LANGUAGE en_US:en
@@ -114,8 +114,10 @@ RUN /bin/bash -c ". ~/.nvm/nvm.sh && \
 
 ## Install AWS Amplify CLI for VERSION_NODE_DEFAULT and VERSION_NODE_10
 RUN /bin/bash -c ". ~/.nvm/nvm.sh && nvm use ${VERSION_NODE_DEFAULT} && \
+    npm config set user 0 && npm config set unsafe-perm true && \
 	npm install -g @aws-amplify/cli@${VERSION_AMPLIFY}"
 RUN /bin/bash -c ". ~/.nvm/nvm.sh && nvm use ${VERSION_NODE_10} && \
+    npm config set user 0 && npm config set unsafe-perm true && \
 	npm install -g @aws-amplify/cli@${VERSION_AMPLIFY}"
 
 ## Environment Setup
