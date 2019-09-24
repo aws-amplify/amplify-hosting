@@ -12,3 +12,4 @@ A chronological list of Amplify Console releases:
 - **07/02/2019** [Custom containers and live updates](https://aws.amazon.com/about-aws/whats-new/2019/07/aws-amplify-console-updates-build-image-sam-cli-and-custom-container-support/)
 - **07/09/2019** [Manual deploys](https://aws.amazon.com/about-aws/whats-new/2019/07/aws-amplify-console-announces-manual-deploys-for-static-web-hosting/)
 - **07/25/2019** [Branch patterns](https://aws.amazon.com/about-aws/whats-new/2019/07/aws-amplify-console-support-git-based-branch-pattern-detection/)
+- **09/24/2019** [Access logs](https://aws.amazon.com/about-aws/whats-new/2019/09/aws-amplify-console-provides-downloadable-access-logs-hosted-web-apps/)
