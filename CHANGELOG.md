@@ -13,3 +13,4 @@ A chronological list of Amplify Console releases:
 - **07/09/2019** [Manual deploys](https://aws.amazon.com/about-aws/whats-new/2019/07/aws-amplify-console-announces-manual-deploys-for-static-web-hosting/)
 - **07/25/2019** [Branch patterns](https://aws.amazon.com/about-aws/whats-new/2019/07/aws-amplify-console-support-git-based-branch-pattern-detection/)
 - **09/24/2019** [Access logs](https://aws.amazon.com/about-aws/whats-new/2019/09/aws-amplify-console-provides-downloadable-access-logs-hosted-web-apps/)
+- **10/1/2019** [End-end testing with Cypress](https://aws.amazon.com/about-aws/whats-new/2019/10/aws-amplify-console-offers-end-to-end-browser-based-testing-with-cypress/)
