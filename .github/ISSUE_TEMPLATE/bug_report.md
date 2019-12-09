@@ -20,8 +20,9 @@ Steps to reproduce the behavior:
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
-**Additional context**
-Add any other context about the problem here.
+**Amplify Console AppID**
+Please share your Amplify Console AppID (Found in `App settings > General > App ARN`). E.g. `arn:aws:amplify:us-west-2:XXXXXXXXXXX:apps/APPID`
+
 
 **Sample code**
 Include additional sample code or a sample repository to help us reproduce the issue. (Be sure to remove any sensitive data)
