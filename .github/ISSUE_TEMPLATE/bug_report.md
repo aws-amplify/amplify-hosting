@@ -4,6 +4,8 @@
 
 1. **Detailed Steps To Reproduce**
 
+1. **Copy and Paste Logs + Error Messages (remove sensitive data)**
+
 1. **Expected behavior**
 
 1. **Application Details**
