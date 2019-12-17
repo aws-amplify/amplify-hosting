@@ -14,7 +14,7 @@
     
     __If the issue is related to a build, please also share:__
     
-    b. The specific Build number(s) we should investigate
+    b. The specific Branch and Build number we should investigate
     
     c. Your buildspec (*the version at the time the issue occurred*), [either from the Amplify console or amplify.yml](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (Be sure to remove any sensitive data)
 
