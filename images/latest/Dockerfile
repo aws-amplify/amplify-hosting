@@ -134,4 +134,6 @@ $PATH" >> ~/.bashrc && \
     echo export GEM_PATH="/usr/local/rvm/gems/ruby-${VERSION_RUBY_DEFAULT}" >> ~/.bashrc && \
     echo "nvm use ${VERSION_NODE_DEFAULT} 1> /dev/null" >> ~/.bashrc
 
+RUN amazon-linux-extras install java-openjdk11
+
 ENTRYPOINT [ "bash", "-c" ]
