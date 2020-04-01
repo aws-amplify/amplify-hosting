@@ -62,15 +62,16 @@ while [[ $# -gt 0 ]]
 done
 set -- "${POSITIONAL[@]}"
 
-# if no provided environment name, use default env variable, then user override
-if [[ ${ENV} = "" ]];
+# If no environment has been provided, perform some checks in order to set ENV
+if [[ -z ${ENV} ]];
 then
-    ENV=${AWS_BRANCH}
-fi
-
-if [[ ${USER_BRANCH} != "" ]];
-then
-    ENV=${USER_BRANCH}
+    # If USER_BRANCH is available, use that, othewise use git branch name as default
+    if [[ ! -z ${USER_BRANCH} ]];
+    then
+        ENV=${USER_BRANCH}
+    else 
+        ENV=${AWS_BRANCH}
+    fi
 fi
 
 # strip slashes, limit to 10 chars
