@@ -16,4 +16,5 @@ A chronological list of Amplify Console releases:
 - **10/1/2019** [End-end testing with Cypress](https://aws.amazon.com/about-aws/whats-new/2019/10/aws-amplify-console-offers-end-to-end-browser-based-testing-with-cypress/)
 - **10/22/2019** [Web Previews](https://aws.amazon.com/about-aws/whats-new/2019/10/aws-amplify-console-aannounces-pull-request-previews-for-fullstack-serverless-applications/)
 - **11/25/2019** [Visibility into Amplify CLI backend environments](https://aws.amazon.com/about-aws/whats-new/2019/11/amplify-console-now-provides-visibility-into-backend-environments-provisioned-by-the-amplify-cli/)
+- **3/5/2020** [Hosting with Amplify CLI](https://aws.amazon.com/about-aws/whats-new/2020/03/amplify-console-adds-command-line-interface-for-configuring-continuous-deployment-and-hosting/)
 
