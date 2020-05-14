@@ -7,6 +7,8 @@
   Amplify Console
 </h1>
 
+[![DiscordChat](https://img.shields.io/discord/308323056592486420?logo=discord")](https://discord.gg/jWVbPfC)
+
 The AWS Amplify Console provides a Git-based workflow for deploying and hosting fullstack serverless web applications. This repository provides:
 * [Release history](https://github.com/aws-amplify/amplify-console/blob/master/CHANGELOG.md)
 * Tools and [build images](https://github.com/aws-amplify/amplify-console/tree/master/images)
