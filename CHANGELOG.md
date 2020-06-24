@@ -18,4 +18,5 @@ A chronological list of Amplify Console releases:
 - **11/25/2019** [Visibility into Amplify CLI backend environments](https://aws.amazon.com/about-aws/whats-new/2019/11/amplify-console-now-provides-visibility-into-backend-environments-provisioned-by-the-amplify-cli/)
 - **3/5/2020** [Hosting with Amplify CLI](https://aws.amazon.com/about-aws/whats-new/2020/03/amplify-console-adds-command-line-interface-for-configuring-continuous-deployment-and-hosting/)
 - **6/16/2020** [Monorepo support](https://aws.amazon.com/about-aws/whats-new/2020/06/amplify-console-supports-deploying-and-hosting-web-apps-managed-in-monorepos/)
+- **6/24/2020** [Automatic sub-domain detection](https://aws.amazon.com/about-aws/whats-new/2020/06/amplify-console-adds-support-for-automatically-creating-deleting-custom-sub-domains-for-every-branch-deployment/)
 
