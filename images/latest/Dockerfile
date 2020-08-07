@@ -112,11 +112,11 @@ RUN /bin/bash -c ". ~/.nvm/nvm.sh && \
     nvm use ${VERSION_NODE_DEFAULT} && \
     npm install -g --unsafe-perm=true --allow-root cypress"
 
-## Install AWS Amplify CLI for VERSION_NODE_DEFAULT and VERSION_NODE_10
+## Install AWS Amplify CLI for VERSION_NODE_DEFAULT and VERSION_NODE_12
 RUN /bin/bash -c ". ~/.nvm/nvm.sh && nvm use ${VERSION_NODE_DEFAULT} && \
     npm config set user 0 && npm config set unsafe-perm true && \
 	npm install -g @aws-amplify/cli@${VERSION_AMPLIFY}"
-RUN /bin/bash -c ". ~/.nvm/nvm.sh && nvm use ${VERSION_NODE_10} && \
+RUN /bin/bash -c ". ~/.nvm/nvm.sh && nvm use ${VERSION_NODE_12} && \
     npm config set user 0 && npm config set unsafe-perm true && \
 	npm install -g @aws-amplify/cli@${VERSION_AMPLIFY}"
 
