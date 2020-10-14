@@ -19,6 +19,10 @@ ENV LANGUAGE en_US:en
 ENV LANG=en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
+## Enable Python 3.8.x from Amazon Linux Extras
+RUN amazon-linux-extras enable python3.8 && \
+    yum clean metadata
+
 ## Install OS packages
 RUN touch ~/.bashrc
 RUN yum -y update && \
@@ -56,8 +60,8 @@ RUN yum -y update && \
         openssh-clients \
         patch \
         procps \
-        python3 \
-        python3-devel \
+        python3.8 \
+        python3.8-devel \
         readline-devel \
         sqlite-devel \
         tar \
@@ -71,6 +75,10 @@ RUN yum -y update && \
         zlib-devel \
     yum clean all && \
     rm -rf /var/cache/yum
+
+## Create links for python3 and pip3
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 10 && \
+    update-alternatives --install /usr/bin/pip3 pip3 /usr/bin/pip3.8 11
 
 ## Install Node 8 & 10 & 12
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
