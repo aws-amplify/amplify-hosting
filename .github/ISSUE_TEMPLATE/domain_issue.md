@@ -2,7 +2,7 @@
 name: Custom domain issue
 about: Got an issue connecting your domain?
 title: ''
-labels: 'Custom domain'
+labels: ''
 assignees: ''
 
 ---
@@ -25,4 +25,3 @@ If there is an error message, please include it here.
 Please add any other relevant information. Please feel free to include screenshots.
 
  additional sample code or a sample repository to help us reproduce the issue. (Be sure to remove any sensitive data)
-

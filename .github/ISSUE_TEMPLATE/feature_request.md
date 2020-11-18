@@ -1,6 +1,9 @@
 ---
 name: Feature request
 about: Have an idea for the Amplify Console? Submit a request.
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
