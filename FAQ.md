@@ -7,7 +7,7 @@
   Amplify Console FAQ
 </h1>
 
-## FAQs
+### Table of contents
 
 - [Build fails with cannot find module aws-exports](#build-fails-with-cannot-find-module-aws-exports)
 - [How do I override a build timeout](#how-do-i-override-a-build-timeout)
