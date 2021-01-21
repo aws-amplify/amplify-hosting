@@ -7,8 +7,14 @@
   Amplify Console FAQ
 </h1>
 
+## FAQs
 
-#### 1. My build is failing with this error ` TS2307: Cannot find module 'aws-exports'`
+- [Build fails with cannot find module aws-exports](#build-fails-with-cannot-find-module-aws-exports)
+- [How do I override a build timeout](#how-do-i-override-a-build-timeout)
+- [How do I pull private packages during a build.](#how-do-i-pull-private-packages-during-a-build)
+
+
+#### Build fails with cannot find module aws-exports
 
 The following error is generated when your app cannot find the `aws-exports.js` file.
 ```tsx
@@ -26,10 +32,10 @@ backend:
         - amplifyPush --simple
 ```
 
-#### 2. How do I override a build timeout
+#### How do I override a build timeout
 The default build timeout is 30 minutes, if your build takes more than 30 minutes, you can override the default build timeout using an env variable: _BUILD_TIMEOUT (App settings > Environment variables).
 
-#### 3. How do I pull private packages during a build.
+#### How do I pull private packages during a build.
 
 Create your own key pair and add the private key as an environment variable in the Amplify app. Add the public key to the repository you would like to clone. You could then add the key to the ssh-agent on the build instance during build and git clone the second repository.
 
