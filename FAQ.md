@@ -61,3 +61,16 @@ commands:
         - eval "$(ssh-agent -s)"
         - ssh-add <(echo "$DEPLOY_KEY" | base64 -d)
 ```
+
+5. Use python 3.8 in functions (*create symlink to link python3 to python3.8 and install pipenv using pip3.8*)
+```
+version: 1
+backend:
+  phases:
+    build:
+      commands:
+        - update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.8 11
+        - /usr/local/bin/pip3.8 install --user pipenv
+        - amplifyPush --simple
+```
+
