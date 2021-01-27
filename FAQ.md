@@ -65,7 +65,7 @@ commands:
 
 #### How do I run Amplify functions with python runtime
 
-[Amplify lambda functions need python 3.8.x or above.](https://docs.amplify.aws/cli/function#function-templates). Our build image support both python 3.7.9 which is aliased under `python3`, and python 3.8 which is aliased under `python3.8`. In order to you use `python3` with python 3.8 version, use the following commands (*create symlink to link python3 to python3.8 and install pipenv using pip3.8*).
+[Amplify lambda functions need python 3.8.x or above.](https://docs.amplify.aws/cli/function#function-templates). Our build image supports both python 3.7.9 which is aliased under `python3`, and python 3.8 which is aliased under `python3.8`. In order to you use `python3` with python 3.8 version, use the following commands (*create symlink to link python3 to python3.8 and install pipenv using pip3.8*).
 
 ```
 version: 1
