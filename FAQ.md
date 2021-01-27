@@ -12,7 +12,7 @@
 - [Build fails with cannot find module aws-exports](#build-fails-with-cannot-find-module-aws-exports)
 - [How do I override a build timeout](#how-do-i-override-a-build-timeout)
 - [How do I pull private packages during a build.](#how-do-i-pull-private-packages-during-a-build)
-- [How do I run python 3.8 with functions](#how-do-i-run-python-3.8-with-functions)
+- [How do I run python with functions](#how-do-i-run-python-with-functions)
 
 
 #### Build fails with cannot find module aws-exports
@@ -64,7 +64,9 @@ commands:
 ```
 
 #### How do I run python 3.8 with functions
-5. Use python 3.8 in functions. We support both python 3.7.9 which is aliased under `python3`, and python 3.8 which is aliased under `python3.8`. In order to you use `python3` with python 3.8 version, use the following commands (*create symlink to link python3 to python3.8 and install pipenv using pip3.8*).
+
+We support both python 3.7.9 which is aliased under `python3`, and python 3.8 which is aliased under `python3.8`. In order to you use `python3` with python 3.8 version, use the following commands (*create symlink to link python3 to python3.8 and install pipenv using pip3.8*).
+
 ```
 version: 1
 backend:
