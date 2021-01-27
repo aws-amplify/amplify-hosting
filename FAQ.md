@@ -12,7 +12,7 @@
 - [Build fails with cannot find module aws-exports](#build-fails-with-cannot-find-module-aws-exports)
 - [How do I override a build timeout](#how-do-i-override-a-build-timeout)
 - [How do I pull private packages during a build.](#how-do-i-pull-private-packages-during-a-build)
-- [How do I run python with functions](#how-do-i-run-amplify-functions-with-python-runtime)
+- [How do I run amplify functions with python runtime](#how-do-i-run-amplify-functions-with-python-runtime)
 
 
 #### Build fails with cannot find module aws-exports
