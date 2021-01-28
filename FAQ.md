@@ -12,6 +12,7 @@
 - [Build fails with cannot find module aws-exports](#build-fails-with-cannot-find-module-aws-exports)
 - [How do I override a build timeout](#how-do-i-override-a-build-timeout)
 - [How do I pull private packages during a build.](#how-do-i-pull-private-packages-during-a-build)
+- [How do I run amplify functions with python runtime](#how-do-i-run-amplify-functions-with-python-runtime)
 
 
 #### Build fails with cannot find module aws-exports
@@ -61,3 +62,19 @@ commands:
         - eval "$(ssh-agent -s)"
         - ssh-add <(echo "$DEPLOY_KEY" | base64 -d)
 ```
+
+#### How do I run Amplify functions with python runtime
+
+[Amplify lambda functions need python 3.8.x or above](https://docs.amplify.aws/cli/function#function-templates). Our build image supports both python 3.7.9 which is aliased under `python3`, and python 3.8 which is aliased under `python3.8`. In order to you use `python3` with python 3.8 version, use the following commands (*create symlink to link python3 to python3.8 and install pipenv using pip3.8*).
+
+```
+version: 1
+backend:
+  phases:
+    build:
+      commands:
+        - update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.8 11
+        - /usr/local/bin/pip3.8 install --user pipenv
+        - amplifyPush --simple
+```
+
