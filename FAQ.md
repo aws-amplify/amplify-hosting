@@ -104,8 +104,8 @@ Once that is done and the domain is marked as available, and you've tested with 
 
 You will need to do the following in quick succession:
 
-Change the DNS record (the records will all have the same destination as the sub domain you created for testing in step 5 above)
-Remove the CNAME from your Cloudfront distribution.
-Add the CNAME to Amplify Console by going to the domain management page, and clicking “Manage subdomains”
-Doing it following this method you should see very little downtime, and will mainly depend on the TTL of the DNS record.
+- Change the DNS record (the records will all have the same destination as the sub domain you created for testing in step 5 above)
+- Remove the CNAME from your Cloudfront distribution.
+- Add the CNAME to Amplify Console by going to the domain management page, and clicking “Manage subdomains”
+- Doing it following this method you should see very little downtime, and will mainly depend on the TTL of the DNS record.
 
