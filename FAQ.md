@@ -9,10 +9,13 @@
 
 ### Table of contents
 
-- [Build fails with cannot find module aws-exports](#build-fails-with-cannot-find-module-aws-exports)
-- [How do I override a build timeout](#how-do-i-override-a-build-timeout)
-- [How do I pull private packages during a build.](#how-do-i-pull-private-packages-during-a-build)
-- [How do I run amplify functions with python runtime](#how-do-i-run-amplify-functions-with-python-runtime)
+- [Table of contents](#table-of-contents)
+  - [Build fails with cannot find module aws-exports](#build-fails-with-cannot-find-module-aws-exports)
+  - [How do I override a build timeout](#how-do-i-override-a-build-timeout)
+  - [How do I pull private packages during a build.](#how-do-i-pull-private-packages-during-a-build)
+  - [How do I run Amplify functions with python runtime](#how-do-i-run-amplify-functions-with-python-runtime)
+  - [How to migrate domains to Amplify with minimal downtime](#how-to-migrate-domains-to-amplify-with-minimal-downtime)
+
 
 
 #### Build fails with cannot find module aws-exports
@@ -77,4 +80,32 @@ backend:
         - /usr/local/bin/pip3.8 install --user pipenv
         - amplifyPush --simple
 ```
+
+#### How to migrate domains to Amplify with minimal downtime
+
+[The best process to follow to minimize downtime here would be](#how-to-migrate-domains-to-amplify-with-minimal-downtime): 
+
+
+In your Amplify Console app, open the domain management screen
+
+ 1. Type in your root domain (yourdomain.com) and click configure
+ 2. Click “Exclude root” button
+ 3. Click “Remove” button next to the “www” sub domain that was automatically added
+ 4. Add a sub domain that you don't use elsewhere for testing purposes
+ 5. Click save
+  
+What we have now done, is started the process of creating and verifying a domain in Amplify Console, without adding any `CNAMEs` to the Amplify Console CloudFront Distribution.
+
+Now follow the instructions for setting up the verification `CNAME` so that your new custom domain will receive a SSL certificate.
+
+While this process is completing, please check the TTL on the DNS records you are moving to Amplify Console. You want them to be as small as possible so that the change propagates quickly. If you have to change this value, please be sure to wait out at minimum, the original TTL before continuing, to make sure that your new TTL is in effect.
+
+Once that is done and the domain is marked as available, and you've tested with the extra sub domain you created in step 5 above, you’re now ready to do the migration.
+
+You will need to do the following in quick succession:
+
+Change the DNS record (the records will all have the same destination as the sub domain you created for testing in step 5 above)
+Remove the CNAME from your Cloudfront distribution.
+Add the CNAME to Amplify Console by going to the domain management page, and clicking “Manage subdomains”
+Doing it following this method you should see very little downtime, and will mainly depend on the TTL of the DNS record.
 
