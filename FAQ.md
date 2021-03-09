@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  Amplify Console FAQ
+  Amplify Console Troubleshooting Guide
 </h1>
 
 ### Table of contents
