@@ -15,6 +15,7 @@
   - [How do I pull private packages during a build.](#how-do-i-pull-private-packages-during-a-build)
   - [How do I run Amplify functions with python runtime](#how-do-i-run-amplify-functions-with-python-runtime)
   - [How to migrate domains to Amplify with minimal downtime](#how-to-migrate-domains-to-amplify-with-minimal-downtime)
+  - [How to reduce node_modules cache size](#how-to-reduce-node_modules-cache-size)
 
 
 
@@ -108,4 +109,15 @@ You will need to do the following in quick succession:
 - Remove the CNAME from your Cloudfront distribution.
 - Add the CNAME to Amplify Console by going to the domain management page, and clicking “Manage subdomains”
 - Doing it following this method you should see very little downtime, and will mainly depend on the TTL of the DNS record.
+
+#### How to reduce node_modules cache size
+
+If you are caching your `node_modules` directory, you may be inadvertently caching webpack, terser and babel files which aren't cleaned up and bloat your cache.  It can also cause your build to run out of memory in the caching step.  To fix, omit your .cache directory using the ! directive, i.e.:
+
+``` 
+  cache:
+    paths:
+      - node_modules/**/*
+      - '!node_modules/.cache'
+```
 
