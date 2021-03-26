@@ -1,0 +1,75 @@
+name: Bug report
+description: Create a report to help us improve Amplify Console
+title: ""
+issue_body: true
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to fill out this bug report! Try to include as much information as you can.
+  - type: markdown
+    attributes:
+      value: |
+        > **Note**: If your issue is regarding the AWS Amplify CLI, please log it in the [Amplify CLI GitHub Issue Tracker](https://github.com/aws-amplify/amplify-cli/issues).
+  - type: checkboxes
+    attributes:
+      label: |
+        Before opening, please confirm:
+      options:
+        - label: I have checked to see if my question is addressed in the [FAQ](https://github.com/aws-amplify/amplify-console/blob/master/FAQ.md).
+          required: true
+        - label: I have [searched for duplicate or closed issues](https://github.com/aws-amplify/amplify-console/issues?q=is%3Aissue+).
+          required: true
+        - label: I have read the guide for [submitting bug reports](https://github.com/aws-amplify/amplify-console/blob/master/CONTRIBUTING.md).
+          required: true
+        - label: I have done my best to include a minimal, self-contained set of instructions for consistently reproducing the issue.
+          required: true
+
+  - type: textarea
+    attributes:
+      label: Describe the bug
+      description: |
+        A clear and concise description of what the bug is. Markdown formatting supported.
+
+        **Be sure to remove any sensitive data.**
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: |
+        A clear and concise description of what you expected to happen. Markdown formatting supported.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproduction steps
+      description: |
+        How do you trigger this bug? Please walk us through it step by step. 
+        Screenshots can be provided in the issue body below. Markdown formatting supported.
+
+        **Be sure to remove any sensitive data.**
+      placeholder: |
+        1. 
+        2.
+        3.
+        ...
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Build Settings
+      description: |
+        If applicable, please include relevant portions of your `amplify.yml`. 
+
+        **Do not include information that is sensitive in nature such as your domain name, company, etc.!**
+      render: yaml
+  - type: markdown
+    attributes:
+      value: |
+        ## Additional information
+  - type: markdown
+    attributes:
+      value: >
+        If you have any additional information, workarounds, etc. for us, use the field below.
+        Please note, you can attach screenshots or screen recordings here, by
+        dragging and dropping files in the field below.
