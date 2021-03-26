@@ -89,7 +89,7 @@ The best process to follow to minimize downtime here would be:
 2. Type in your root domain (yourdomain.com) and click configure
 3. Click “Exclude root” button
 4. Click “Remove” button next to the “www” sub domain that was automatically added
-5. Add a sub domain that you don't use elsewhere for testing purposes
+5. Add a subdomain that you don't use elsewhere for testing purposes
 6. Click save
 
 What we have now done, is started the process of creating and verifying a domain in Amplify Console, without adding any `CNAMEs` to the Amplify Console CloudFront Distribution.
@@ -102,7 +102,7 @@ Once that is done and the domain is marked as available, and you've tested with 
 
 You will need to do the following in quick succession:
 
-- Change the DNS record (the records will all have the same destination as the subdomain you created for testing in step 6 above)
+- Change the DNS record (the records will all have the same destination as the subdomain you created for testing in step 5 above)
 - Remove the CNAME from your CloudFront distribution.
 - Add the CNAME to Amplify Console by going to the domain management page, and clicking “Manage subdomains”
 - Doing it following this method you should see very little downtime, and will mainly depend on the TTL of the DNS record.
