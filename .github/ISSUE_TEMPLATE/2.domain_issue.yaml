@@ -32,7 +32,7 @@ body:
         https://console.aws.amazon.com/amplify/home?region=<region>#/<APP-ID>
         ```
 
-        Or, go to **App Settings** -> **General** -> **AppArn**, and inspect the last portion of the identifier.
+        Or, go to **App Settings** -> **General** -> **AppArn**, and inspect the last portion of the identifier:
 
         ```
         arn:aws:amplify:REGION:accountId:apps/<APP-ID>
