@@ -1,8 +1,8 @@
-## Release History
+## Amplify Console Release History
 
 A chronological list of Amplify Console releases:
 
-- **11/26/2018** [Amplify Console Launch](https://aws.amazon.com/about-aws/whats-new/2018/11/announcing-aws-amplify-console/) |  [8 exciting features of Amplify Console](https://hackernoon.com/introducing-the-amplify-console-8-exciting-features-7e4075ff7b36)
+- **11/26/2018** [Amplify Console Launch](https://aws.amazon.com/about-aws/whats-new/2018/11/announcing-aws-amplify-console/) | [8 exciting features of Amplify Console](https://hackernoon.com/introducing-the-amplify-console-8-exciting-features-7e4075ff7b36)
 - **03/07/2019** [Instant cache invalidation](https://aws.amazon.com/about-aws/whats-new/2019/03/aws-amplify-console-adds-support-for-instant-cdn-cache-invalidation-and-delta-deployments/)
 - **04/04/2019** [One-click deploy button](https://aws.amazon.com/about-aws/whats-new/2019/04/aws-amplify-console-now-supports-deploying-fullstack-serverless-/)
 - **04/09/2019** [Region expansion](https://aws.amazon.com/about-aws/whats-new/2019/04/amplify-console-now-available-in-five-additional-regions/)
@@ -20,3 +20,6 @@ A chronological list of Amplify Console releases:
 - **6/16/2020** [Monorepo support](https://aws.amazon.com/about-aws/whats-new/2020/06/amplify-console-supports-deploying-and-hosting-web-apps-managed-in-monorepos/)
 - **6/24/2020** [Automatic sub-domain detection](https://aws.amazon.com/about-aws/whats-new/2020/06/amplify-console-adds-support-for-automatically-creating-deleting-custom-sub-domains-for-every-branch-deployment/)
 
+- **11/4/2020** [Performance Mode](https://docs.aws.amazon.com/amplify/latest/userguide/ttl.html#ttl.title)
+
+- **12/1/2020** [Admin UI feature launch](https://docs.amplify.aws/console/adminui/start)
