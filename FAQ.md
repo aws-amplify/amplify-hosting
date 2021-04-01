@@ -14,8 +14,11 @@
   - [How do I override a build timeout](#how-do-i-override-a-build-timeout)
   - [How do I pull private packages during a build.](#how-do-i-pull-private-packages-during-a-build)
   - [How do I run Amplify functions with Python runtime](#how-do-i-run-amplify-functions-with-python-runtime)
-  - [How do I migrate domains to Amplify with minimal downtime](#how-do-i-migrate-domains-to-amplify-with-minimal-downtime)
   - [How do I reduce the node_modules cache size](#how-do-i-reduce-the-node_modules-cache-size)
+  - Custom Domains
+    - [How do I migrate domains to Amplify with minimal downtime](#how-do-i-migrate-domains-to-amplify-with-minimal-downtime)
+    - [CNAMEAlreadyExistsException](#cnamealreadyexistsexception)
+
 
 #### Build fails with _Cannot find module aws-exports_
 
@@ -81,6 +84,20 @@ backend:
         - amplifyPush --simple
 ```
 
+
+#### How do I reduce the `node_modules` cache size?
+
+If you are caching your `node_modules` directory, you may be inadvertently caching webpack, terser and babel files which aren't cleaned up and bloat your cache. It can also cause your build to run out of memory in the caching step. To fix, omit your `.cache` directory using the `!` directive, i.e.:
+
+```yaml
+cache:
+  paths:
+    - node_modules/**/*
+    - "!node_modules/.cache"
+```
+
+### Custom Domains
+
 #### How do I migrate domains to Amplify with minimal downtime?
 
 The best process to follow to minimize downtime here would be:
@@ -107,13 +124,23 @@ You will need to do the following in quick succession:
 - Add the CNAME to Amplify Console by going to the domain management page, and clicking “Manage subdomains”
 - Doing it following this method you should see very little downtime, and will mainly depend on the TTL of the DNS record.
 
-#### How do I reduce the `node_modules` cache size?
+#### CNAMEAlreadyExistsException
+What this means: One of the hostnames you tried to connect (could be a subdomain, or the apex) is already deployed to a Cloudfront distribution.
 
-If you are caching your `node_modules` directory, you may be inadvertently caching webpack, terser and babel files which aren't cleaned up and bloat your cache. It can also cause your build to run out of memory in the caching step. To fix, omit your `.cache` directory using the `!` directive, i.e.:
+https://docs.aws.amazon.com/amplify/latest/userguide/custom-domains.html#cnamealreadyexistsexception-error
+https://aws.amazon.com/premiumsupport/knowledge-center/resolve-cnamealreadyexists-error/
 
-```yaml
-cache:
-  paths:
-    - node_modules/**/*
-    - "!node_modules/.cache"
-```
+These guides are helpful for getting started with custom domains, for existing domains there are number of steps that will need to be completed (as outlined in the docs above) depending on your current hosting and DNS providers.
+
+A CNAME alias (mydomain.com, sub.mydomain.com) can only be associated with a single CloudFront distribution at a time, if you receive this error then the domain is already associated with another CF distribution (either within the same AWS account, or potentially in a different account) and must be disassociated from the previous distribution before the distribution created for you by Amplify Console will work, the docs help outline how to do this (and you may need to check more than one account if you or your organization owns multiple accounts)
+
+If you manage your domain through Route53, make sure to clean up any hosted zone CNAME or ALIAS records that point to the old distribution. After completing the above, remove the custom domain from Amplify Console and start the flow over.
+
+Initial troubleshooting steps:
+
+- Is this domain connected to a different Amplify App that you own? If so, make sure you are not trying to reuse one of the hostnames.
+  - If you are using www.domain.com on the other app, you cannot use www.domain.com on this app
+  - You can use other hostnames, like blog.domain.com
+- If you had this domain successfully connected to Amplify and then recently (within the last hour) deleted it, please wait and try again.
+- Check the Cloudfront console to see if you have this domain deployed to any distributions
+If you are positive no CloudFront distribution exists (including in other accounts) using this domain, and only if it would not be disruptive to any currently running services, try deleting and recreating the hosted zone
