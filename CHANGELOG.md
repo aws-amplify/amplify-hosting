@@ -23,3 +23,4 @@ A chronological list of Amplify Console releases:
 - **11/4/2020** [Performance Mode](https://docs.aws.amazon.com/amplify/latest/userguide/ttl.html#ttl.title)
 
 - **12/1/2020** [Admin UI feature launch](https://docs.amplify.aws/console/adminui/start)
+- **2/2/2021** [Monitoring with CloudWatch](https://aws.amazon.com/about-aws/whats-new/2021/02/aws-amplify-hosting-adds-monitoring-capabilities-with-amazon-cloudwatch-integration/)
