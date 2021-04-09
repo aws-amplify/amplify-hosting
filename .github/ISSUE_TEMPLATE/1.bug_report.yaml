@@ -27,7 +27,7 @@ body:
     attributes:
       label: Describe the bug
       description: |
-        A clear and concise description of what the bug is. Markdown formatting supported.
+        A clear and concise description of what the bug is.
 
         **Be sure to remove any sensitive data.**
     validations:
@@ -36,7 +36,7 @@ body:
     attributes:
       label: Expected behavior
       description: |
-        A clear and concise description of what you expected to happen. Markdown formatting supported.
+        A clear and concise description of what you expected to happen.
     validations:
       required: true
   - type: textarea
@@ -44,7 +44,7 @@ body:
       label: Reproduction steps
       description: |
         How do you trigger this bug? Please walk us through it step by step. 
-        Screenshots can be provided in the issue body below. Markdown formatting supported.
+        Screenshots can be provided in the issue body below.
 
         **Be sure to remove any sensitive data.**
       placeholder: |
