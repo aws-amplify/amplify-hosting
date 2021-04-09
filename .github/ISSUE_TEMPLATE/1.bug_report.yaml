@@ -1,7 +1,6 @@
 name: Bug report
 description: Create a report to help us improve Amplify Console
 title: ""
-issue_body: true
 body:
   - type: markdown
     attributes:
@@ -28,7 +27,7 @@ body:
     attributes:
       label: Describe the bug
       description: |
-        A clear and concise description of what the bug is. Markdown formatting supported.
+        A clear and concise description of what the bug is.
 
         **Be sure to remove any sensitive data.**
     validations:
@@ -37,7 +36,7 @@ body:
     attributes:
       label: Expected behavior
       description: |
-        A clear and concise description of what you expected to happen. Markdown formatting supported.
+        A clear and concise description of what you expected to happen.
     validations:
       required: true
   - type: textarea
@@ -45,7 +44,7 @@ body:
       label: Reproduction steps
       description: |
         How do you trigger this bug? Please walk us through it step by step. 
-        Screenshots can be provided in the issue body below. Markdown formatting supported.
+        Screenshots can be provided in the issue body below.
 
         **Be sure to remove any sensitive data.**
       placeholder: |
@@ -63,13 +62,10 @@ body:
 
         **Do not include information that is sensitive in nature such as your domain name, company, etc.!**
       render: yaml
-  - type: markdown
+  - type: textarea
     attributes:
-      value: |
-        ## Additional information
-  - type: markdown
-    attributes:
-      value: >
+      label: Additional information
+      description: |
         If you have any additional information, workarounds, etc. for us, use the field below.
         Please note, you can attach screenshots or screen recordings here, by
         dragging and dropping files in the field below.
