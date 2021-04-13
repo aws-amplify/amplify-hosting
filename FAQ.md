@@ -12,13 +12,14 @@
 - [Table of contents](#table-of-contents)
   - [Build fails with cannot find module aws-exports](#build-fails-with-cannot-find-module-aws-exports)
   - [How do I override a build timeout](#how-do-i-override-a-build-timeout)
-  - [How do I pull private packages during a build.](#how-do-i-pull-private-packages-during-a-build)
+  - [How do I pull private packages during a build](#how-do-i-pull-private-packages-during-a-build)
   - [How do I run Amplify functions with Python runtime](#how-do-i-run-amplify-functions-with-python-runtime)
   - [How do I reduce the node_modules cache size](#how-do-i-reduce-the-node_modules-cache-size)
+  - Redirects
+    - [Access denied for certain routes even with SPA redirect rule](#access-denied-for-certain-routes-even-with-SPA-redirect-rule)
   - Custom Domains
     - [How do I migrate domains to Amplify with minimal downtime](#how-do-i-migrate-domains-to-amplify-with-minimal-downtime)
     - [CNAMEAlreadyExistsException](#cnamealreadyexistsexception)
-
 
 #### Build fails with _Cannot find module aws-exports_
 
@@ -84,7 +85,6 @@ backend:
         - amplifyPush --simple
 ```
 
-
 #### How do I reduce the `node_modules` cache size?
 
 If you are caching your `node_modules` directory, you may be inadvertently caching webpack, terser and babel files which aren't cleaned up and bloat your cache. It can also cause your build to run out of memory in the caching step. To fix, omit your `.cache` directory using the `!` directive, i.e.:
@@ -94,6 +94,20 @@ cache:
   paths:
     - node_modules/**/*
     - "!node_modules/.cache"
+```
+
+### Redirects
+
+#### Access denied for certain routes even with SPA redirect rule
+
+This can also happen if your `baseDirectory` is not set correctly. For example, if your frontend is built to the `build` directory then your build settings will need to point to that or you will see this error.
+
+For more information: https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html#yml-specification-syntax
+
+```yaml
+baseDirectory: build
+files:
+  - "**/*"
 ```
 
 ### Custom Domains
@@ -125,6 +139,7 @@ You will need to do the following in quick succession:
 - Doing it following this method you should see very little downtime, and will mainly depend on the TTL of the DNS record.
 
 #### CNAMEAlreadyExistsException
+
 What this means: One of the hostnames you tried to connect (could be a subdomain, or the apex) is already deployed to a Cloudfront distribution.
 
 https://docs.aws.amazon.com/amplify/latest/userguide/custom-domains.html#cnamealreadyexistsexception-error
@@ -143,4 +158,4 @@ Initial troubleshooting steps:
   - You can use other hostnames, like blog.domain.com
 - If you had this domain successfully connected to Amplify and then recently (within the last hour) deleted it, please wait and try again.
 - Check the Cloudfront console to see if you have this domain deployed to any distributions
-If you are positive no CloudFront distribution exists (including in other accounts) using this domain, and only if it would not be disruptive to any currently running services, try deleting and recreating the hosted zone
+  If you are positive no CloudFront distribution exists (including in other accounts) using this domain, and only if it would not be disruptive to any currently running services, try deleting and recreating the hosted zone
