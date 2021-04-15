@@ -10,8 +10,9 @@ jobs:
       - uses: actions/stale@v3
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+          operations-per-run: 200
           stale-issue-message: "This issue is stale since it's been open 30 days with no activity. This will be closed in 5 days unless the `no-activity` label is removed or a comment is added."
-          close-issue-message: "This issue was closed since it's been 5 days with no activity."
+          close-issue-message: "This issue was closed since it's been 7 days with no activity."
           days-before-stale: 30
           days-before-close: 7
           # PRs wont go stale
