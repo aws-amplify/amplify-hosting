@@ -7,7 +7,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        > **Note**: If your issue is regarding the AWS Amplify CLI, please log it in the [Amplify CLI GitHub Issue Tracker](https://github.com/aws-amplify/amplify-cli/issues).
+        **Note**: If your issue is regarding the AWS Amplify CLI, please log it in the [Amplify CLI GitHub Issue Tracker](https://github.com/aws-amplify/amplify-cli/issues).
+
   - type: checkboxes
     attributes:
       label: |
@@ -46,6 +47,29 @@ body:
       placeholder: e.g. us-east-1
     validations:
       required: true
+
+  - type: dropdown
+    attributes:
+      label: Amplify Console feature
+      description: What feature(s) is this about?
+      multiple: true
+      options:
+        - Access control
+        - Backend builds
+        - Build settings
+        - Custom builds
+        - Custom headers
+        - E2E tests
+        - Environment variables
+        - Logging
+        - Manual deploys
+        - Monorepo
+        - Notifications
+        - Performance
+        - Previews
+        - Redirects
+        - Webhooks
+        - Not applicable
 
   - type: textarea
     attributes:
@@ -91,5 +115,4 @@ body:
       label: Additional information
       description: |
         If you have any additional information, workarounds, etc. for us, use the field below.
-        Please note, you can attach screenshots or screen recordings here, by
-        dragging and dropping files in the field below.
+        Please note, you can attach screenshots or screen recordings here, by dragging and dropping files in the field below.
