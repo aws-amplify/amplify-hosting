@@ -37,14 +37,11 @@ body:
         arn:aws:amplify:REGION:accountId:apps/<APP-ID>
         ```
 
-    validations:
-      required: true
   - type: input
     attributes:
       label: Region
       placeholder: e.g. us-east-1
-    validations:
-      required: true
+
   - type: input
     attributes:
       label: Step
