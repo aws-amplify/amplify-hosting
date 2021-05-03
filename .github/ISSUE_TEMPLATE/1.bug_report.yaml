@@ -22,6 +22,31 @@ body:
         - label: I have done my best to include a minimal, self-contained set of instructions for consistently reproducing the issue.
           required: true
 
+  - type: input
+    attributes:
+      label: App Id
+      description: |
+        Find the `App Id` in the last portion of your URL. For example:
+
+        ```
+        https://console.aws.amazon.com/amplify/home?region=<region>#/<APP-ID>
+        ```
+
+        Or, go to **App Settings** -> **General** -> **AppArn**, and inspect the last portion of the identifier:
+
+        ```
+        arn:aws:amplify:REGION:accountId:apps/<APP-ID>
+        ```
+
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Region
+      placeholder: e.g. us-east-1
+    validations:
+      required: true
+
   - type: textarea
     attributes:
       label: Describe the bug
