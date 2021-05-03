@@ -1,6 +1,5 @@
 name: Custom domain issue
 description: Track a domain issue or question
-title: ""
 labels: "custom-domain"
 body:
   - type: markdown
