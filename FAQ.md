@@ -10,6 +10,7 @@
 ## Table of contents
 
 - [Table of contents](#table-of-contents)
+- [Builds](#builds)
   - [Build fails with _Cannot find module aws-exports_](#build-fails-with-cannot-find-module-aws-exports)
   - [How do I override a build timeout?](#how-do-i-override-a-build-timeout)
   - [How do I pull private packages during a build?](#how-do-i-pull-private-packages-during-a-build)
@@ -22,6 +23,8 @@
   - [CNAMEAlreadyExistsException](#cnamealreadyexistsexception)
 - [Web previews](#web-previews)
   - [Previews are not being created for my pull requests](#previews-are-not-being-created-for-my-pull-requests)
+
+## Builds
 
 ### Build fails with _Cannot find module aws-exports_
 
