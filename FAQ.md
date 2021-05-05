@@ -175,4 +175,4 @@ Common reasons why pull requests previews may not be created:
 
 - The Amplify app has hit the [max branches per app](https://docs.aws.amazon.com/general/latest/gr/amplify.html) quota. Consider enabling branch auto deletion in your app so that you don't accumulate branches that no longer exist in your repo. 
 
-- If you are using a public GitHub repository and your Amplify app has an IAM [service role](https://docs.aws.amazon.com/amplify/latest/userguide/how-to-service-role-amplify-console.html) associated to it, previews will not be created for security reasons. In this case, you can either dissasociate the service role from your App if the app doesn't have a backend, or make the GitHub repository private. 
+- If you are using a public GitHub repository and your Amplify app has an IAM [service role](https://docs.aws.amazon.com/amplify/latest/userguide/how-to-service-role-amplify-console.html) associated to it, previews will not be created for security reasons. In this case, you can either disassociate the service role from your App if the app doesn't have a backend, or make the GitHub repository private. 
