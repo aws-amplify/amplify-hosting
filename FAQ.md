@@ -9,7 +9,6 @@
 
 ## Table of contents
 
-- [Table of contents](#table-of-contents)
 - [Builds](#builds)
   - [Build fails with _Cannot find module aws-exports_](#build-fails-with-cannot-find-module-aws-exports)
   - [How do I override a build timeout?](#how-do-i-override-a-build-timeout)
