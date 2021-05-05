@@ -7,21 +7,25 @@
   Amplify Console Troubleshooting Guide
 </h1>
 
-### Table of contents
+## Table of contents
 
-- [Table of contents](#table-of-contents)
-  - [Build fails with cannot find module aws-exports](#build-fails-with-cannot-find-module-aws-exports)
-  - [How do I override a build timeout](#how-do-i-override-a-build-timeout)
-  - [How do I pull private packages during a build](#how-do-i-pull-private-packages-during-a-build)
-  - [How do I run Amplify functions with Python runtime](#how-do-i-run-amplify-functions-with-python-runtime)
-  - [How do I reduce the node_modules cache size](#how-do-i-reduce-the-node_modules-cache-size)
-  - Redirects
-    - [Access denied for certain routes even with SPA redirect rule](#access-denied-for-certain-routes-even-with-SPA-redirect-rule)
-  - Custom Domains
-    - [How do I migrate domains to Amplify with minimal downtime](#how-do-i-migrate-domains-to-amplify-with-minimal-downtime)
-    - [CNAMEAlreadyExistsException](#cnamealreadyexistsexception)
+- [Builds](#builds)
+  - [Build fails with _Cannot find module aws-exports_](#build-fails-with-cannot-find-module-aws-exports)
+  - [How do I override a build timeout?](#how-do-i-override-a-build-timeout)
+  - [How do I pull private packages during a build?](#how-do-i-pull-private-packages-during-a-build)
+  - [How do I run Amplify functions with Python runtime?](#how-do-i-run-amplify-functions-with-python-runtime)
+  - [How do I reduce the `node_modules` cache size?](#how-do-i-reduce-the-node_modules-cache-size)
+- [Redirects](#redirects)
+  - [Access denied for certain routes even with SPA redirect rule](#access-denied-for-certain-routes-even-with-spa-redirect-rule)
+- [Custom Domains](#custom-domains)
+  - [How do I migrate domains to Amplify with minimal downtime?](#how-do-i-migrate-domains-to-amplify-with-minimal-downtime)
+  - [CNAMEAlreadyExistsException](#cnamealreadyexistsexception)
+- [Web previews](#web-previews)
+  - [Previews are not being created for new pull requests](#previews-are-not-being-created-for-new-pull-requests)
 
-#### Build fails with _Cannot find module aws-exports_
+## Builds
+
+### Build fails with _Cannot find module aws-exports_
 
 The following error is generated when your app cannot find the `aws-exports.js` file.
 
@@ -40,11 +44,11 @@ backend:
         - amplifyPush --simple
 ```
 
-#### How do I override a build timeout?
+### How do I override a build timeout?
 
 The default build timeout is 30 minutes, if your build takes more than 30 minutes, you can override the default build timeout using an environment variable: `_BUILD_TIMEOUT` (App settings > Environment variables).
 
-#### How do I pull private packages during a build?
+### How do I pull private packages during a build?
 
 Create your own key pair and add the private key as an environment variable in the Amplify app. Add the public key to the repository you would like to clone. You could then add the key to the ssh-agent on the build instance during build and git clone the second repository.
 
@@ -70,7 +74,7 @@ commands:
   - ssh-add <(echo "$DEPLOY_KEY" | base64 -d)
 ```
 
-#### How do I run Amplify functions with Python runtime?
+### How do I run Amplify functions with Python runtime?
 
 [Amplify Lambda functions need Python 3.8.x or above](https://docs.amplify.aws/cli/function#supported-lambda-runtimes). Our build image supports both Python 3.7.9 which is aliased under `python3`, and Python 3.8 which is aliased under `python3.8`. In order to you use `python3` with Python 3.8 version, use the following commands (_create symlink to link python3 to python3.8 and install pipenv using pip3.8_).
 
@@ -85,7 +89,7 @@ backend:
         - amplifyPush --simple
 ```
 
-#### How do I reduce the `node_modules` cache size?
+### How do I reduce the `node_modules` cache size?
 
 If you are caching your `node_modules` directory, you may be inadvertently caching webpack, terser and babel files which aren't cleaned up and bloat your cache. It can also cause your build to run out of memory in the caching step. To fix, omit your `.cache` directory using the `!` directive, i.e.:
 
@@ -96,9 +100,9 @@ cache:
     - "!node_modules/.cache"
 ```
 
-### Redirects
+## Redirects
 
-#### Access denied for certain routes even with SPA redirect rule
+### Access denied for certain routes even with SPA redirect rule
 
 This can also happen if your `baseDirectory` is not set correctly. For example, if your frontend is built to the `build` directory then your build settings will need to point to that or you will see this error.
 
@@ -110,9 +114,9 @@ files:
   - "**/*"
 ```
 
-### Custom Domains
+## Custom Domains
 
-#### How do I migrate domains to Amplify with minimal downtime?
+### How do I migrate domains to Amplify with minimal downtime?
 
 The best process to follow to minimize downtime here would be:
 
@@ -138,7 +142,7 @@ You will need to do the following in quick succession:
 - Add the CNAME to Amplify Console by going to the domain management page, and clicking “Manage subdomains”
 - Doing it following this method you should see very little downtime, and will mainly depend on the TTL of the DNS record.
 
-#### CNAMEAlreadyExistsException
+### CNAMEAlreadyExistsException
 
 What this means: One of the hostnames you tried to connect (could be a subdomain, or the apex) is already deployed to a Cloudfront distribution.
 
@@ -159,3 +163,15 @@ Initial troubleshooting steps:
 - If you had this domain successfully connected to Amplify and then recently (within the last hour) deleted it, please wait and try again.
 - Check the Cloudfront console to see if you have this domain deployed to any distributions
   If you are positive no CloudFront distribution exists (including in other accounts) using this domain, and only if it would not be disruptive to any currently running services, try deleting and recreating the hosted zone
+
+## Web previews
+
+Web previews is a feature to preview changes from pull requests (PRs) before merging them to an integration branch. A web preview deploys every pull request made to your repository to a unique preview URL which is different from the URL your main site uses. 
+
+### Previews are not being created for new pull requests
+
+Common reasons why pull requests previews may not be created: 
+
+- The Amplify app has hit the [max branches per app](https://docs.aws.amazon.com/general/latest/gr/amplify.html) quota. Consider enabling branch auto deletion in your app so that you don't accumulate branches that no longer exist in your repo. 
+
+- If you are using a public GitHub repository and your Amplify app has an IAM [service role](https://docs.aws.amazon.com/amplify/latest/userguide/how-to-service-role-amplify-console.html) associated to it, previews will not be created for security reasons. In this case, you can either disassociate the service role from your App if the app doesn't have a backend, or make the GitHub repository private. 
