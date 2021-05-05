@@ -8,7 +8,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        > **Note**: Do not include information that is sensitive in nature such as your domain name, company, etc.
+        **Note**: Do not include information that is sensitive in nature such as your domain name, company, etc.
+
   - type: checkboxes
     attributes:
       label: |
@@ -36,14 +37,11 @@ body:
         arn:aws:amplify:REGION:accountId:apps/<APP-ID>
         ```
 
-    validations:
-      required: true
   - type: input
     attributes:
       label: Region
       placeholder: e.g. us-east-1
-    validations:
-      required: true
+
   - type: input
     attributes:
       label: Step
@@ -77,5 +75,4 @@ body:
       label: Additional information
       description: |
         If you have any additional information, workarounds, etc. for us, use the field below.
-        Please note, you can attach screenshots or screen recordings here, by
-        dragging and dropping files in the field below.
+        Please note, you can attach screenshots or screen recordings here, by dragging and dropping files in the field below.

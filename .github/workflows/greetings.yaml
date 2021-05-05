@@ -14,3 +14,5 @@ jobs:
             Hi :wave:, thanks for opening! While we look into this...
 
             If this issue is related to custom domains, be sure to check the [custom domains troubleshooting guide](https://docs.aws.amazon.com/amplify/latest/userguide/custom-domain-troubleshoot-guide.html) to see if that helps. Also, there is a more general [troubleshooting FAQ](https://github.com/aws-amplify/amplify-console/blob/master/FAQ.md) that may be helpful for other questions.
+
+            Lastly, please make sure you've specified the `App ID` and `Region` in the issue!
