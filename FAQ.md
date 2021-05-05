@@ -22,7 +22,7 @@
   - [How do I migrate domains to Amplify with minimal downtime?](#how-do-i-migrate-domains-to-amplify-with-minimal-downtime)
   - [CNAMEAlreadyExistsException](#cnamealreadyexistsexception)
 - [Web previews](#web-previews)
-  - [Previews are not being created for my pull requests](#previews-are-not-being-created-for-my-pull-requests)
+  - [Previews are not being created for new pull requests](#previews-are-not-being-created-for-new-pull-requests)
 
 ## Builds
 
@@ -169,7 +169,7 @@ Initial troubleshooting steps:
 
 Web previews is a feature to preview changes from pull requests (PRs) before merging them to an integration branch. A web preview deploys every pull request made to your repository to a unique preview URL which is different from the URL your main site uses. 
 
-### Previews are not being created for my pull requests
+### Previews are not being created for new pull requests
 
 Common reasons why pull requests previews may not be created: 
 
