@@ -22,6 +22,7 @@ body:
         - label: I have done my best to include a minimal, self-contained set of instructions for consistently reproducing the issue.
           required: true
   - type: input
+    id: app-id
     attributes:
       label: App Id
       description: |
@@ -38,17 +39,20 @@ body:
         ```
 
   - type: input
+    id: region
     attributes:
       label: Region
       placeholder: e.g. us-east-1
 
   - type: input
+    id: step
     attributes:
       label: Step
       placeholder: e.g. Domain activation
     validations:
       required: true
   - type: input
+    id: status
     attributes:
       label: Status
       placeholder: e.g. Failed
