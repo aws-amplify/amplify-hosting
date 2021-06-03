@@ -14,7 +14,9 @@
   - [How do I override a build timeout?](#how-do-i-override-a-build-timeout)
   - [How do I pull private packages during a build?](#how-do-i-pull-private-packages-during-a-build)
   - [How do I run Amplify functions with Python runtime?](#how-do-i-run-amplify-functions-with-python-runtime)
-  - [How do I reduce the `node_modules` cache size?](#how-do-i-reduce-the-node_modules-cache-size)
+  - [Cache](#cache)
+    - [How do I reduce the cache size?](#how-do-i-reduce-the-cache-size)
+    - [How do I disable reading from cache?](#how-do-i-disable-reading-from-cache)
 - [Redirects](#redirects)
   - [Access denied for certain routes even with SPA redirect rule](#access-denied-for-certain-routes-even-with-spa-redirect-rule)
 - [Custom Domains](#custom-domains)
@@ -46,7 +48,7 @@ backend:
 
 ### How do I override a build timeout?
 
-The default build timeout is 30 minutes. You can override the default build timeout using an environment variable: `_BUILD_TIMEOUT` (App settings > Environment variables). The minimum build timeout is 5 minutes.
+The default build timeout is 30 minutes. You can override the default build timeout using an environment variable: `_BUILD_TIMEOUT` (App settings > Environment variables). The minimum build timeout is 5 minutes.  The maximum build timeout is 120 minutes.
 
 ### How do I pull private packages during a build?
 
@@ -89,16 +91,23 @@ backend:
         - amplifyPush --simple
 ```
 
-### How do I reduce the `node_modules` cache size?
+### Cache
+#### How do I reduce the cache size?
 
-If you are caching your `node_modules` directory, you may be inadvertently caching webpack, terser and babel files which aren't cleaned up and bloat your cache. It can also cause your build to run out of memory in the caching step. To fix, omit your `.cache` directory using the `!` directive, i.e.:
+If you are using cache, you may be inadvertently caching intermediate files which aren't cleaned up between builds and bloat your cache. To omit certain folders, use the `!` directive, i.e.:
 
 ```yaml
 cache:
   paths:
     - node_modules/**/*
-    - "!node_modules/.cache"
+    - "!node_modules/path/not/to/cache"
 ```
+
+`node_modules/.cache` is omitted by default if you cache `node_modules`
+
+#### How do I disable reading from cache?
+
+If you ever specified a cache, it will continue to pull down the cache even if you remove the cache section from your buildspec.  To disable reading from cache, set the `AWS_CACHE_BUCKET_READ` environment variable to `false` in `App settings > Environment variables`
 
 ## Redirects
 
