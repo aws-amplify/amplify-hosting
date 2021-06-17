@@ -24,6 +24,8 @@
   - [CNAMEAlreadyExistsException](#cnamealreadyexistsexception)
 - [Web previews](#web-previews)
   - [Previews are not being created for new pull requests](#previews-are-not-being-created-for-new-pull-requests)
+- [SSR](#ssr)
+  - [Convert an SSR App to SSG](#convert-an-ssr-app-to-ssg)
 
 ## Builds
 
@@ -184,3 +186,33 @@ Common reasons why pull requests previews may not be created:
 - The Amplify app has hit the [max branches per app](https://docs.aws.amazon.com/general/latest/gr/amplify.html) quota. Consider enabling branch auto deletion in your app so that you don't accumulate branches that no longer exist in your repo. 
 
 - If you are using a public GitHub repository and your Amplify app has an IAM [service role](https://docs.aws.amazon.com/amplify/latest/userguide/how-to-service-role-amplify-console.html) associated to it, previews will not be created for security reasons. In this case, you can either disassociate the service role from your App if the app doesn't have a backend, or make the GitHub repository private. 
+
+
+## SSR
+**Amplify SSR Docs**: https://docs.aws.amazon.com/amplify/latest/userguide/server-side-rendering-amplify.html
+
+With frameworks like Next.js you can create apps that are dynamic, use SSR (server side rendering), or static (SSG). If you create an SSG app and want to convert it to use SSR, you can follow our guide [here](https://docs.aws.amazon.com/amplify/latest/userguide/server-side-rendering-amplify.html#redeploy-ssg-to-ssr).
+
+If you need to revert your app back to SSG, we suggest you delete your app and create a new one following the [guide](https://docs.aws.amazon.com/amplify/latest/userguide/server-side-rendering-amplify.html#deploy-nextjs-app) for how to get your app to be detected as SSG. **But if that is not an option and you need to revert existing app back to SSG**, please follow the guide below.
+
+### Convert an SSR App to SSG
+1. Run the following AWS CLI commands
+```
+aws amplify update-app --app-id <APP_ID> --platform WEB --region <REGION>
+aws amplify update-branch --app-id <APP_ID> --branch-name <BRANCH_NAME> --framework 'Next.js - SSG' --region <REGION>
+```
+*Note, if your app uses an Amplify Backend, then set your framework field to be* 'Next.js - SSG - Amplify'
+
+2. Update your build spec to point the 'baseDirectory' to 'out'. e.g.
+```
+version: 1
+frontend:
+  ...
+  artifacts:
+    baseDirectory: out
+  ...
+```
+
+3. Update the build command in your package.json to use `next export`, then commit this to trigger a new non SSR build.
+
+4. Finally, go to the `Rewrites and redirects` tab in the Amplify Console, and delete the first rewrite rule that was re-writing to your SSR CloudFront Distribution.
