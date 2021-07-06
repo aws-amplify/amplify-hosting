@@ -25,3 +25,4 @@ A chronological list of Amplify Console releases:
 - **12/1/2020** [Admin UI feature launch](https://docs.amplify.aws/console/adminui/start)
 - **2/2/2021** [Monitoring with CloudWatch](https://aws.amazon.com/about-aws/whats-new/2021/02/aws-amplify-hosting-adds-monitoring-capabilities-with-amazon-cloudwatch-integration/)
 - **5/13/2021** [SSR support with Next.js](https://aws.amazon.com/about-aws/whats-new/2021/05/aws-amplify-hosting-announces-server-side-rendering-support-for-next-js-web-apps/)
+- - **7/1/2021** [Full-stack CI/CD enhancements](https://aws.amazon.com/about-aws/whats-new/2021/07/aws-amplify-launches-new-full-stack-ci-cd-capabilities/)
