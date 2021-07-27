@@ -5,6 +5,7 @@ MAINTAINER Amazon AWS
 ENV VERSION_NODE_8=8.12.0
 ENV VERSION_NODE_10=10.16.0
 ENV VERSION_NODE_12=12
+ENV VERSION_NODE_16=16
 ENV VERSION_NODE_DEFAULT=$VERSION_NODE_10
 ENV VERSION_RUBY_2_4=2.4.6
 ENV VERSION_RUBY_2_6=2.6.3
@@ -81,6 +82,7 @@ RUN /bin/bash -c ". ~/.nvm/nvm.sh && \
 	npm install -g sm grunt-cli bower vuepress gatsby-cli && \
     bash /usr/local/bin/yarn-install.sh --version $VERSION_YARN && \
 	nvm install $VERSION_NODE_12 && nvm use $VERSION_NODE_12 && \
+	nvm install $VERSION_NODE_16 && nvm use $VERSION_NODE_16 && \
 	npm install -g sm grunt-cli bower vuepress gatsby-cli && \
     bash /usr/local/bin/yarn-install.sh --version $VERSION_YARN && \
 	nvm alias default node && nvm cache clear"
@@ -135,3 +137,4 @@ $PATH" >> ~/.bashrc && \
     echo "nvm use ${VERSION_NODE_DEFAULT} 1> /dev/null" >> ~/.bashrc
 
 ENTRYPOINT [ "bash", "-c" ]
+{"mode":"full","isActive":false}
