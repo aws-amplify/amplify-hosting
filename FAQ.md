@@ -10,6 +10,7 @@
 ## Table of contents
 
 - [Builds](#builds)
+  - [I do not see my repo in the list](#i-do-not-see-my-repo-in-the-list)
   - [Build fails with _Cannot find module aws-exports_](#build-fails-with-cannot-find-module-aws-exports)
   - [How do I override a build timeout?](#how-do-i-override-a-build-timeout)
   - [How do I pull private packages during a build?](#how-do-i-pull-private-packages-during-a-build)
@@ -19,6 +20,7 @@
     - [How do I disable reading from cache?](#how-do-i-disable-reading-from-cache)
 - [Redirects](#redirects)
   - [Access denied for certain routes even with SPA redirect rule](#access-denied-for-certain-routes-even-with-spa-redirect-rule)
+  - [Reverse Proxying to external API](#reverse-proxying-to-external-api)
 - [Custom Domains](#custom-domains)
   - [How do I migrate domains to Amplify with minimal downtime?](#how-do-i-migrate-domains-to-amplify-with-minimal-downtime)
   - [CNAMEAlreadyExistsException](#cnamealreadyexistsexception)
@@ -28,6 +30,9 @@
   - [Convert an SSR App to SSG](#convert-an-ssr-app-to-ssg)
 
 ## Builds
+
+### I do not see my repo in the list
+If in the console during app creation you see a list of repos in your org but not the one you're searching for, it may be due to having a large number of repos and the target repo not having been recently updated. If this is the case, you can make an update to your repository and your repo should appear.
 
 ### Build fails with _Cannot find module aws-exports_
 
@@ -124,6 +129,20 @@ baseDirectory: build
 files:
   - "**/*"
 ```
+
+### Reverse Proxying to external API
+A basic example of reverse proxying your Amplify-hosted app to a third party API can be found in the [documentation](https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#reverse-proxy-rewrite). Additionally, a dynamic endpoint can be setup as follows:
+```json
+[
+    {
+        "source": "/foo/<*>",
+        "target": "https://some.other.domain/resource/<*>",
+        "status": "200",
+        "condition": null
+    }
+]
+```
+
 
 ## Custom Domains
 
