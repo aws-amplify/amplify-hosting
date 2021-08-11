@@ -32,7 +32,11 @@
 ## Builds
 
 ### I do not see my repo in the list
-If in the console during app creation you see a list of repos in your org but not the one you're searching for, it may be due to having a large number of repos and the target repo not having been recently updated. If this is the case, you can make an update to your repository and your repo should appear.
+During application creation, the target repository may not show as a search result in the organization repository list if it hasn't been recently updated.
+
+This may occur if the organization has a large number of repositories.
+
+If this is the case, make an update to the repository and it should appear in the list.
 
 ### Build fails with _Cannot find module aws-exports_
 
