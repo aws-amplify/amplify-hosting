@@ -10,6 +10,7 @@
 ## Table of contents
 
 - [Builds](#builds)
+  - [I do not see my repo in the list](#i-do-not-see-my-repo-in-the-list)
   - [Build fails with _Cannot find module aws-exports_](#build-fails-with-cannot-find-module-aws-exports)
   - [How do I override a build timeout?](#how-do-i-override-a-build-timeout)
   - [How do I pull private packages during a build?](#how-do-i-pull-private-packages-during-a-build)
@@ -19,6 +20,7 @@
     - [How do I disable reading from cache?](#how-do-i-disable-reading-from-cache)
 - [Redirects](#redirects)
   - [Access denied for certain routes even with SPA redirect rule](#access-denied-for-certain-routes-even-with-spa-redirect-rule)
+  - [Reverse Proxying to external API](#reverse-proxying-to-external-api)
 - [Custom Domains](#custom-domains)
   - [How do I migrate domains to Amplify with minimal downtime?](#how-do-i-migrate-domains-to-amplify-with-minimal-downtime)
   - [CNAMEAlreadyExistsException](#cnamealreadyexistsexception)
@@ -28,6 +30,13 @@
   - [Convert an SSR App to SSG](#convert-an-ssr-app-to-ssg)
 
 ## Builds
+
+### I do not see my repo in the list
+During application creation, the target repository may not show as a search result in the organization repository list if it hasn't been recently updated.
+
+This may occur if the organization has a large number of repositories.
+
+If this is the case, make an update to the repository and it should appear in the list.
 
 ### Build fails with _Cannot find module aws-exports_
 
@@ -124,6 +133,20 @@ baseDirectory: build
 files:
   - "**/*"
 ```
+
+### Reverse Proxying to external API
+A basic example of reverse proxying your Amplify-hosted app to a third party API can be found in the [Reverse proxy rewrite documentation](https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#reverse-proxy-rewrite). Additionally, a dynamic endpoint can be setup as follows:
+```json
+[
+    {
+        "source": "/foo/<*>",
+        "target": "https://some.other.domain/resource/<*>",
+        "status": "200",
+        "condition": null
+    }
+]
+```
+
 
 ## Custom Domains
 
