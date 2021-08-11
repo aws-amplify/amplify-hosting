@@ -131,7 +131,7 @@ files:
 ```
 
 ### Reverse Proxying to external API
-A basic example of reverse proxying your Amplify-hosted app to a third party API can be found in the [documentation](https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#reverse-proxy-rewrite). Additionally, a dynamic endpoint can be setup as follows:
+A basic example of reverse proxying your Amplify-hosted app to a third party API can be found in the [Reverse proxy rewrite documentation](https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#reverse-proxy-rewrite). Additionally, a dynamic endpoint can be setup as follows:
 ```json
 [
     {
