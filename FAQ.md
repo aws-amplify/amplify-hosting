@@ -28,6 +28,8 @@
   - [Previews are not being created for new pull requests](#previews-are-not-being-created-for-new-pull-requests)
 - [SSR](#ssr)
   - [Convert an SSR App to SSG](#convert-an-ssr-app-to-ssg)
+  - [Webpack ModuleNotFound Errors](#webpack-modulenotfound-errors)
+  - [NotImplemented Errors](#notimplemented-errors)
 
 ## Builds
 
@@ -239,3 +241,21 @@ frontend:
 3. Update the build command in your package.json to use `next export`, then commit this to trigger a new non SSR build.
 
 4. Finally, go to the `Rewrites and redirects` tab in the Amplify Console, and delete the first rewrite rule that was re-writing to your SSR CloudFront Distribution.
+
+
+### Webpack `ModuleNotFound` Errors
+
+If you are facing Webpack errors (*ModuleNotFound* / *Cannot find module*) as a result of the new Webpack 5 default. 
+
+Please try the following:
+1. Try a Next.js 10 version  e.g. `"next": "10.2.3",` in your `package.json`
+2. Create a `next.config.js` file if you don't already have one and add the `target: 'serverless'` param like so:
+```
+module.exports = {
+    target: 'serverless',
+}
+```
+
+### `NotImplemented` Errors
+
+If you are facing the `NotImplemented` error ("*A header you provided implies functionality that is not implemented*") while using ISR, please follow the suggestion [here](#webpack-modulenotfound-errors) as a temporary workaround while we add a change to allow you to use Next.js 11 with ISR. (see: https://github.com/aws-amplify/amplify-console/issues/2179)
