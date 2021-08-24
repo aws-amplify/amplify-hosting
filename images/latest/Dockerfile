@@ -139,4 +139,3 @@ $PATH" >> ~/.bashrc && \
     echo "nvm use ${VERSION_NODE_DEFAULT} 1> /dev/null" >> ~/.bashrc
 
 ENTRYPOINT [ "bash", "-c" ]
-{"mode":"full","isActive":false}
