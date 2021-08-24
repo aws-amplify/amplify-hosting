@@ -10,6 +10,7 @@
 ## Table of contents
 
 - [Builds](#builds)
+  - [New commits are not triggering builds on Amplify](#new-commits-are-not-triggering-builds-on-amplify)
   - [I do not see my repo in the list](#i-do-not-see-my-repo-in-the-list)
   - [Build fails with _Cannot find module aws-exports_](#build-fails-with-cannot-find-module-aws-exports)
   - [How do I override a build timeout?](#how-do-i-override-a-build-timeout)
@@ -32,6 +33,10 @@
   - [NotImplemented Errors](#notimplemented-errors)
 
 ## Builds
+
+### New commits are not triggering builds on Amplify
+
+If new commits on your repository are not triggering builds on Amplify, consider checking that your webhook is still present on your repository. If it is, check the history of webhook requests to see if there are any failures. We have a limit of 256 KB of payload size for incoming webhooks, so if you push a commit to your repository that has a lot of files changed, you may be hitting this limit which is the reason for builds not being triggered.
 
 ### I do not see my repo in the list
 During application creation, the target repository may not show as a search result in the organization repository list if it hasn't been recently updated.
