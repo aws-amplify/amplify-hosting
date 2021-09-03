@@ -31,6 +31,7 @@
   - [Convert an SSR App to SSG](#convert-an-ssr-app-to-ssg)
   - [Webpack ModuleNotFound Errors](#webpack-modulenotfound-errors)
   - [NotImplemented Errors](#notimplemented-errors)
+  - [[ERROR] AccessDenied: Access Denied](#error-accessdenied-access-denied)
 
 ## Builds
 
@@ -264,3 +265,77 @@ module.exports = {
 ### `NotImplemented` Errors
 
 If you are facing the `NotImplemented` error ("*A header you provided implies functionality that is not implemented*") while using ISR, please follow the suggestion [here](#webpack-modulenotfound-errors) as a temporary workaround while we add a change to allow you to use Next.js 11 with ISR. (see: https://github.com/aws-amplify/amplify-console/issues/2179)
+
+
+### [ERROR] AccessDenied: Access Denied
+
+If you get this error when building a NextJs SSR application, it's likely that the IAM role associated to your App does not have sufficient permissions to deploy resources in your account. For SSR apps, we deploy things like an S3 bucket, a CloudFront distribution, Lambda@Edge functions, an SQS queue (if using ISR) and IAM roles. The following IAM policy is a recommended baseline of permissions that your role needs, but feel free to adjust it to your needs:  
+
+<details>
+  <summary>IAM permissions for Amplify App Role</summary>
+  
+```
+acm:DescribeCertificate
+acm:ListCertificates
+acm:RequestCertificate
+cloudfront:CreateCloudFrontOriginAccessIdentity
+cloudfront:CreateDistribution
+cloudfront:CreateInvalidation
+cloudfront:GetDistribution
+cloudfront:GetDistributionConfig
+cloudfront:ListCloudFrontOriginAccessIdentities
+cloudfront:ListDistributions
+cloudfront:ListDistributionsByLambdaFunction
+cloudfront:ListDistributionsByWebACLId
+cloudfront:ListFieldLevelEncryptionConfigs
+cloudfront:ListFieldLevelEncryptionProfiles
+cloudfront:ListInvalidations
+cloudfront:ListPublicKeys
+cloudfront:ListStreamingDistributions
+cloudfront:UpdateDistribution
+cloudfront:TagResource
+cloudfront:UntagResource
+cloudfront:ListTagsForResource
+iam:AttachRolePolicy
+iam:CreateRole
+iam:CreateServiceLinkedRole
+iam:GetRole
+iam:PutRolePolicy
+iam:PassRole
+lambda:CreateFunction
+lambda:EnableReplication
+lambda:DeleteFunction
+lambda:GetFunction
+lambda:GetFunctionConfiguration
+lambda:PublishVersion
+lambda:UpdateFunctionCode
+lambda:UpdateFunctionConfiguration
+lambda:ListTags
+lambda:TagResource
+lambda:UntagResource
+route53:ChangeResourceRecordSets
+route53:ListHostedZonesByName
+route53:ListResourceRecordSets
+s3:CreateBucket
+s3:GetAccelerateConfiguration
+s3:GetObject
+s3:ListBucket
+s3:PutAccelerateConfiguration
+s3:PutBucketPolicy
+s3:PutObject
+s3:PutBucketTagging
+s3:GetBucketTagging
+lambda:ListEventSourceMappings
+lambda:CreateEventSourceMapping
+iam:UpdateAssumeRolePolicy
+iam:DeleteRolePolicy
+sqs:CreateQueue           // SQS only needed if using ISR feature
+sqs:DeleteQueue
+sqs:GetQueueAttributes
+sqs:SetQueueAttributes
+amplify:GetApp
+amplify:GetBranch
+amplify:UpdateApp
+amplify:UpdateBranch
+```
+</details>
