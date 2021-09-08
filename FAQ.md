@@ -118,7 +118,7 @@ cache:
 
 #### How do I disable reading from cache?
 
-You can either remove the cache section from your buildspec or set via the `AWS_CACHE_BUCKET_READ` environment variable.  If you want to disable via environment variable and leave cache in your buildspec, set the `AWS_CACHE_BUCKET_READ` environment variable to `false` in `App settings > Environment variables`
+You can either remove the cache section from your buildspec or set the `AWS_CACHE_BUCKET_READ` environment variable. To disable with the environment variable and leave cache in your buildspec, set the `AWS_CACHE_BUCKET_READ` environment variable to `false` in `App settings > Environment variables`.
 
 ## Redirects
 
