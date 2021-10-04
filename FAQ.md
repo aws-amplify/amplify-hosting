@@ -32,6 +32,8 @@
   - [Webpack ModuleNotFound Errors](#webpack-modulenotfound-errors)
   - [NotImplemented Errors](#notimplemented-errors)
   - [[ERROR] AccessDenied: Access Denied](#error-accessdenied-access-denied)
+  - [Environment Variables Workaround](#environment-variables-workaround)
+
 
 ## Builds
 
@@ -339,3 +341,18 @@ amplify:UpdateApp
 amplify:UpdateBranch
 ```
 </details>
+
+### Environment Variables Workaround
+
+Follow these steps to add environment variables for Next.js SSR/ISR apps:
+
+1. Add your desired environment variable in the Amplify Console like normal ([steps](https://docs.aws.amazon.com/amplify/latest/userguide/environment-variables.html#setting-env-vars))
+2. Update (or create) your `next.config.js` file with the environment variable you added in the Amplify Console. E.g if you created an environment variable named `MY_ENV_VAR` in the console in step 1) above, then you would add the following: 
+```
+module.exports = {
+  env: {
+    MY_ENV_VAR: process.env.MY_ENV_VAR
+  }
+};
+```
+3. Now after your next build you will be able to reference your environment variable (`process.env.MY_ENV_VAR`) in your SSR lambdas!
