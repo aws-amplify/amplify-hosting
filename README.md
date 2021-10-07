@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  Amplify Console
+  Amplify Hosting
 </h1>
 
 [![DiscordChat](https://img.shields.io/discord/308323056592486420?logo=discord")](https://discord.gg/jWVbPfC)
