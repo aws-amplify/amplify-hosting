@@ -380,6 +380,6 @@ Follow these steps to access logs for Lambda@Edge functions deployed with your N
 2021-10-28T15:34:14 [INFO]: - Image Optimization Lambda@Edge: 123abcd-qrstu2
 ```
 
-3. Lambda functions should be deployed in the AWS region closest to you. Select that region and navigate to the Lambda console. Paste the ID in the search bar to find the function.
-4. Click on the funciton and navigate to the `Monitor` tab. Select `View Logs in CloudWatch`
+3. Lambda@Edge functions are replicated globally to all edge locations and they are executed in the region closest to where the end-user requests are coming from (geographically). For example if your users are in the west coast of the United States, then it's likely that you will find the logs in either the us-west-1 or us-west-2 regions. Go to the desired region and navigate to the Lambda console. Paste the ID in the search bar to find the function.
+4. Click on the function and navigate to the `Monitor` tab. Select `View Logs in CloudWatch`
 5. If `Log group does not exist` error pops up, select `View existing log groups`. Search for the logs using your region and the Lambda@Edge function ID like so: `/aws/lambda/us-east-1.123abcd-lmnop1`.
