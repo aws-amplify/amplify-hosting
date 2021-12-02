@@ -261,16 +261,9 @@ frontend:
 
 If you are facing Webpack errors (_ModuleNotFound_ / _Cannot find module_) as a result of the new Webpack 5 default.
 
-Please try the following:
+First, you should check the troubleshooting guide provided by NextJS on this issue: https://nextjs.org/docs/messages/module-not-found. If you are still getting errors after following their guide. Your app may need to be built using the experimental-serverless-trace target. To opt-in into this behavior, you need to set the environment variable `AMPLIFY_NEXTJS_EXPERIMENTAL_TRACE=true` in your App settings. 
 
-1. Try a Next.js 10 version e.g. `"next": "10.2.3",` in your `package.json`
-2. Create a `next.config.js` file if you don't already have one and add the `target: 'serverless'` param like so:
-
-```
-module.exports = {
-    target: 'serverless',
-}
-```
+![](assets/images/amplify_nextjs_experimental_trace_envvar.png)
 
 ### `NotImplemented` Errors
 
