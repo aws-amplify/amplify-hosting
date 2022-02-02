@@ -4,12 +4,12 @@
   </a>
 </p>
 <h1 align="center">
-  Amplify Console
+  Amplify Hosting
 </h1>
 
 [![DiscordChat](https://img.shields.io/discord/308323056592486420?logo=discord")](https://discord.gg/jWVbPfC)
 
-The AWS Amplify Console provides a Git-based workflow for deploying and hosting fullstack serverless web applications. This repository provides:
+AWS Amplify Hosting provides a Git-based workflow for deploying and hosting fullstack serverless web applications. This repository provides:
 
 - A [FAQ](https://github.com/aws-amplify/amplify-console/blob/master/FAQ.md) for common issues
 - [Release history](https://github.com/aws-amplify/amplify-console/blob/master/CHANGELOG.md)
