@@ -17,7 +17,7 @@ body:
       options:
         - label: I have checked the [custom domains troubleshooting guide](https://docs.aws.amazon.com/amplify/latest/userguide/custom-domain-troubleshoot-guide.html).
           required: true
-        - label: I have read the guide for [submitting bug reports](https://github.com/aws-amplify/amplify-console/blob/master/CONTRIBUTING.md).
+        - label: I have read the guide for [submitting bug reports](https://github.com/aws-amplify/amplify-hosting/blob/master/CONTRIBUTING.md).
           required: true
         - label: I have done my best to include a minimal, self-contained set of instructions for consistently reproducing the issue.
           required: true
