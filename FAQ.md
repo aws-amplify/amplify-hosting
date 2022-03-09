@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  Amplify Console Troubleshooting Guide
+  Amplify Hosting Troubleshooting Guide
 </h1>
 
 ## Table of contents
@@ -82,7 +82,7 @@ Create your own key pair and add the private key as an environment variable in t
 ssh-keygen -f deploy_key -N ""
 ```
 
-2. Encode it and copy the output into an Environment Variable in the Amplify Console (e.g. DEPLOY_KEY)
+2. Encode it and copy the output into an Environment Variable in the Amplify Hosting (e.g. DEPLOY_KEY)
 
 ```sh
 cat deploy_key | base64 | tr -d n
@@ -167,18 +167,18 @@ A basic example of reverse proxying your Amplify-hosted app to a third party API
 
 The best process to follow to minimize downtime here would be:
 
-1. In your Amplify Console app, open the domain management screen
+1. In your Amplify Hosting app, open the domain management screen
 2. Type in your root domain (yourdomain.com) and click configure
 3. Click “Exclude root” button
 4. Click “Remove” button next to the “www” sub domain that was automatically added
 5. Add a subdomain that you don't use elsewhere for testing purposes
 6. Click save
 
-What we have now done, is started the process of creating and verifying a domain in Amplify Console, without adding any `CNAMEs` to the Amplify Console CloudFront Distribution.
+What we have now done, is started the process of creating and verifying a domain in Amplify Hosting, without adding any `CNAMEs` to the Amplify Console CloudFront Distribution.
 
 Now follow the instructions for setting up the verification `CNAME` so that your new custom domain will receive a SSL certificate.
 
-While this process is completing, please check the TTL on the DNS records you are moving to Amplify Console. You want them to be as small as possible so that the change propagates quickly. If you have to change this value, please be sure to wait out at minimum, the original TTL before continuing, to make sure that your new TTL is in effect.
+While this process is completing, please check the TTL on the DNS records you are moving to Amplify Hosting. You want them to be as small as possible so that the change propagates quickly. If you have to change this value, please be sure to wait out at minimum, the original TTL before continuing, to make sure that your new TTL is in effect.
 
 Once that is done and the domain is marked as available, and you've tested with the extra sub domain you created in step 5 above, you’re now ready to do the migration.
 
@@ -186,7 +186,7 @@ You will need to do the following in quick succession:
 
 - Change the DNS record (the records will all have the same destination as the subdomain you created for testing in step 5 above)
 - Remove the CNAME from your CloudFront distribution.
-- Add the CNAME to Amplify Console by going to the domain management page, and clicking “Manage subdomains”
+- Add the CNAME to Amplify Hosting by going to the domain management page, and clicking “Manage subdomains”
 - Doing it following this method you should see very little downtime, and will mainly depend on the TTL of the DNS record.
 
 ### CNAMEAlreadyExistsException
@@ -198,9 +198,9 @@ https://aws.amazon.com/premiumsupport/knowledge-center/resolve-cnamealreadyexist
 
 These guides are helpful for getting started with custom domains, for existing domains there are number of steps that will need to be completed (as outlined in the docs above) depending on your current hosting and DNS providers.
 
-A CNAME alias (mydomain.com, sub.mydomain.com) can only be associated with a single CloudFront distribution at a time, if you receive this error then the domain is already associated with another CF distribution (either within the same AWS account, or potentially in a different account) and must be disassociated from the previous distribution before the distribution created for you by Amplify Console will work, the docs help outline how to do this (and you may need to check more than one account if you or your organization owns multiple accounts)
+A CNAME alias (mydomain.com, sub.mydomain.com) can only be associated with a single CloudFront distribution at a time, if you receive this error then the domain is already associated with another CF distribution (either within the same AWS account, or potentially in a different account) and must be disassociated from the previous distribution before the distribution created for you by Amplify Hosting will work, the docs help outline how to do this (and you may need to check more than one account if you or your organization owns multiple accounts)
 
-If you manage your domain through Route53, make sure to clean up any hosted zone CNAME or ALIAS records that point to the old distribution. After completing the above, remove the custom domain from Amplify Console and start the flow over.
+If you manage your domain through Route53, make sure to clean up any hosted zone CNAME or ALIAS records that point to the old distribution. After completing the above, remove the custom domain from Amplify Hosting and start the flow over.
 
 Initial troubleshooting steps:
 
@@ -255,7 +255,7 @@ frontend:
 
 3. Update the build command in your package.json to use `next export`, then commit this to trigger a new non SSR build.
 
-4. Finally, go to the `Rewrites and redirects` tab in the Amplify Console, and delete the first rewrite rule that was re-writing to your SSR CloudFront Distribution.
+4. Finally, go to the `Rewrites and redirects` tab in the Amplify Hosting, and delete the first rewrite rule that was re-writing to your SSR CloudFront Distribution.
 
 ### Webpack `ModuleNotFound` Errors
 
@@ -346,8 +346,8 @@ amplify:UpdateBranch
 
 Follow these steps to add environment variables for Next.js SSR/ISR apps:
 
-1. Add your desired environment variable in the Amplify Console like normal ([steps](https://docs.aws.amazon.com/amplify/latest/userguide/environment-variables.html#setting-env-vars))
-2. Update (or create) your `next.config.js` file with the environment variable you added in the Amplify Console. E.g if you created an environment variable named `MY_ENV_VAR` in the console in step 1) above, then you would add the following:
+1. Add your desired environment variable in the Amplify Hosting like normal ([steps](https://docs.aws.amazon.com/amplify/latest/userguide/environment-variables.html#setting-env-vars))
+2. Update (or create) your `next.config.js` file with the environment variable you added in the Amplify Hosting. E.g if you created an environment variable named `MY_ENV_VAR` in the console in step 1) above, then you would add the following:
 
 ```
 module.exports = {

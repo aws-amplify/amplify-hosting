@@ -1,4 +1,4 @@
-# Contributing to Amplify Console
+# Contributing to Amplify Hosting
 
 Thank you for your interest in contributing to our project! 💛
 

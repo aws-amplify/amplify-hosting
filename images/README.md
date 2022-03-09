@@ -4,10 +4,10 @@
   </a>
 </p>
 <h1 align="center">
-  Amplify Console - Build Images
+  Amplify Hosting - Build Images
 </h1>
 
-<a href="https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html">Amplify Console</a> provides 2 build images that are based on Amazon Linux. The latest build image is based on Amazon Linux 2, but we also provide the orginal build image that is based on Amazon Linux 1 for backwards compatibility. These images are used as defaults for builds in Amplify Console, we also provide the option to use a <a href="https://docs.aws.amazon.com/amplify/latest/userguide/custom-build-image.html#setup">custom image</a> however.
+<a href="https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html">Amplify Hosting</a> provides 2 build images that are based on Amazon Linux. The latest build image is based on Amazon Linux 2, but we also provide the orginal build image that is based on Amazon Linux 1 for backwards compatibility. These images are used as defaults for builds in Amplify Console, we also provide the option to use a <a href="https://docs.aws.amazon.com/amplify/latest/userguide/custom-build-image.html#setup">custom image</a> however.
 
 ### Building the images
 Build the latest Docker image:
@@ -28,5 +28,5 @@ $ docker run -it amplify-console/buildimage:latest /bin/bash
 
 This will launch a container locally and drop you into the container with Bash.
 
-### Updates to Amplify Console build images
-These images are maintained by the Amplify Console team and automatically published to GitHub. We appreciate and encourage contributions from the community! The process for merging pull-requests happens outside of GitHub however, and will then be automatically published to GitHub.
+### Updates to Amplify Hosting build images
+These images are maintained by the Amplify Hosting team and automatically published to GitHub. We appreciate and encourage contributions from the community! The process for merging pull-requests happens outside of GitHub however, and will then be automatically published to GitHub.

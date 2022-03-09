@@ -1,6 +1,6 @@
 <!--
 Please make sure to read the Pull Request Guidelines:
-https://github.com/aws-amplify/amplify-console/blob/master/CONTRIBUTING.md#pull-requests
+https://github.com/aws-amplify/amplify-hosting/blob/master/CONTRIBUTING.md#pull-requests
 -->
 
 #### Description of changes
