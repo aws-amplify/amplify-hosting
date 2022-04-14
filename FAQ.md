@@ -19,6 +19,7 @@
   - [Cache](#cache)
     - [How do I reduce the cache size?](#how-do-i-reduce-the-cache-size)
     - [How do I disable reading from cache?](#how-do-i-disable-reading-from-cache)
+  - [Migration To GitHub Apps](#migration-to-github-apps)
 - [Redirects](#redirects)
   - [Access denied for certain routes even with SPA redirect rule](#access-denied-for-certain-routes-even-with-spa-redirect-rule)
   - [Reverse Proxying to external API](#reverse-proxying-to-external-api)
@@ -376,3 +377,12 @@ Follow these steps to access logs for Lambda@Edge functions deployed with your N
 3. Lambda@Edge functions are replicated globally to all edge locations and they are executed in the region closest to where the end-user requests are coming from (geographically). For example if your users are in the west coast of the United States, then it's likely that you will find the logs in either the us-west-1 or us-west-2 regions. Go to the desired region and navigate to the Lambda console. Paste the ID in the search bar to find the function.
 4. Click on the function and navigate to the `Monitor` tab. Select `View Logs in CloudWatch`
 5. If `Log group does not exist` error pops up, select `View existing log groups`. Search for the logs using your region and the Lambda@Edge function ID like so: `/aws/lambda/us-east-1.123abcd-lmnop1`.
+
+
+### Migration To GitHub Apps
+
+As part of our new added [support for using GitHub Apps to authorize access to repositories](https://aws.amazon.com/about-aws/whats-new/2022/04/aws-amplify-hosting-github-access-workflows/), we require [single file read/write permission](https://docs.github.com/en/rest/overview/permissions-required-for-github-apps#permission-on-single-file) on the `amplify.yml` file to support creating/updating your `amplify.yml` from the AWS Amplify Console.
+
+If you previously had our GitHub App installed for using our [PR Previews feature](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html), you would have received an email asking you to Accept/Reject this change to our GitHub App Permissions.
+
+To learn more about setting up GitHub access, check out our [docs](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html)
