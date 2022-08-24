@@ -11,12 +11,12 @@ ENV VERSION_NODE_14=14
 ENV VERSION_NODE_16=16
 ENV VERSION_NODE_17=17
 ENV VERSION_NODE_DEFAULT=$VERSION_NODE_14
-ENV VERSION_RUBY_2_4=2.4.6
-ENV VERSION_RUBY_2_6=2.6.3
+ENV VERSION_RUBY_3_STABLE=3.1.2
+ENV VERSION_RUBY_2_STABLE=2.7.6
 ENV VERSION_BUNDLER=2.0.1
 ENV VERSION_JEKYLL=4.2.1
 ENV VERSION_JEKYLL_SASS_CONVERTER=2.1.0
-ENV VERSION_RUBY_DEFAULT=$VERSION_RUBY_2_4
+ENV VERSION_RUBY_DEFAULT=$VERSION_RUBY_2_STABLE
 ENV VERSION_HUGO=0.75.1
 ENV VERSION_YARN=1.22.0
 ENV VERSION_AMPLIFY=7.6.14
@@ -66,7 +66,7 @@ RUN yum -y update && \
         libyaml-devel \
         make \
         nss-devel \
-        openssl-devel \
+        openssl11-devel \
         openssh-clients \
         patch \
         procps \
@@ -146,8 +146,8 @@ RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - && curl -sSL https://rv
 
 ENV PATH /usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RUN /bin/bash --login -c "\
-    rvm install $VERSION_RUBY_2_4 && rvm use $VERSION_RUBY_2_4 && gem install bundler -v $VERSION_BUNDLER && gem install -N jekyll-sass-converter -v $VERSION_JEKYLL_SASS_CONVERTER && gem install -N jekyll -v $VERSION_JEKYLL && \
-    rvm install $VERSION_RUBY_2_6 && rvm use $VERSION_RUBY_2_6 && gem install bundler -v $VERSION_BUNDLER && gem install -N jekyll -v $VERSION_JEKYLL && \
+    rvm install $VERSION_RUBY_2_STABLE && rvm use $VERSION_RUBY_2_STABLE && gem install bundler -v $VERSION_BUNDLER && gem install -N jekyll-sass-converter -v $VERSION_JEKYLL_SASS_CONVERTER && gem install -N jekyll -v $VERSION_JEKYLL && \
+    rvm install $VERSION_RUBY_3_STABLE && rvm use $VERSION_RUBY_3_STABLE && gem install bundler -v $VERSION_BUNDLER && gem install -N jekyll -v $VERSION_JEKYLL && \
     rvm cleanup all"
 
 ## Install awscli
