@@ -45,6 +45,7 @@ body:
 
         arn:aws:amplify:AWS-REGION:accountId:apps/<APP-ID>
         ```
+        Note: Type `NEW_APP` if you are experiencing issues while creating a new Amplify application
     validations:
       required: true
 
