@@ -1,13 +1,14 @@
 name: Bug report
 description: Create a report to help us improve Amplify Hosting
+labels: ["bug", "pending-triage"]
 body:
   - type: markdown
     attributes:
-      value: Thanks for taking the time to fill out this bug report! Try to include as much information as you can.
-  - type: markdown
-    attributes:
       value: |
-        **Note**: If your issue is regarding the AWS Amplify CLI, please log it in the [Amplify CLI GitHub Issue Tracker](https://github.com/aws-amplify/amplify-cli/issues).
+        Thanks for taking the time to fill out this bug report! Try to include as much information as you can.
+
+        > For **Amplify CLI** issues, go [here](https://github.com/aws-amplify/amplify-cli/issues/new/choose)
+        > For **Amplify Studio** issues, go [here](https://github.com/aws-amplify/amplify-adminui/issues/new/choose)
 
   - type: checkboxes
     attributes:
@@ -22,58 +23,102 @@ body:
           required: true
         - label: I have done my best to include a minimal, self-contained set of instructions for consistently reproducing the issue.
           required: true
+        - label: I have removed any sensitive information from my code snippets and submission.
+          required: true
 
+  - type: markdown
+    attributes:
+      value: |
+        ## Amplify Environment
   - type: input
     attributes:
       label: App Id
       description: |
-        Find the `App Id` in the last portion of your URL. For example:
-
         ```
-        https://console.aws.amazon.com/amplify/home?region=<region>#/<APP-ID>
-        ```
+        Find the App Id in the last portion of your URL. For example:
 
-        Or, go to **App Settings** -> **General** -> **AppArn**, and inspect the last portion of the identifier:
+        https://console.aws.amazon.com/amplify/home?region=<AWS-REGION>#/<APP-ID>
 
-        ```
-        arn:aws:amplify:REGION:accountId:apps/<APP-ID>
-        ```
+        OR
 
-  - type: input
+        Within the Amplify Console, navigate to App Settings -> General -> App Arn, and inspect the last portion of the identifier:
+
+        arn:aws:amplify:AWS-REGION:accountId:apps/<APP-ID>
+        ```
+        Note: Type `NEW_APP` if you are experiencing issues while creating a new Amplify application
+    validations:
+      required: true
+
+  - type: dropdown
     attributes:
-      label: Region
-      placeholder: e.g. us-east-1
+      label: AWS Region
+      multiple: false
+      options:
+        - us-east-1
+        - us-east-2
+        - us-west-1
+        - us-west-2
+        - ap-south-1
+        - ap-southeast-1
+        - ap-southeast-2
+        - ap-northeast-1
+        - ap-northeast-2
+        - ap-east-1
+        - ca-central-1
+        - eu-west-1
+        - eu-west-2
+        - eu-west-3
+        - eu-central-1
+        - eu-south-1
+        - eu-north-1
+        - sa-east-1
+        - me-south-1
+    validations:
+      required: true
 
   - type: dropdown
     attributes:
       label: Amplify Hosting feature
-      description: What feature(s) is this about?
+      description: What [feature(s)](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html#amplify-console-features) is this about?
       multiple: true
       options:
         - Access control
+        - Access logs
         - Backend builds
         - Build settings
-        - Custom builds
+        - CloudWatch metrics
+        - CloudWatch alarms
+        - Custom build image
         - Custom headers
-        - E2E tests
+        - Deployments
+        - E2E Cypress tests
         - Environment variables
-        - Logging
+        - Frontend builds
+        - Git providers
         - Manual deploys
         - Monorepo
         - Notifications
-        - Performance
-        - Previews
+        - One click deploy
+        - Performance mode
+        - Public APIs
         - Redirects
+        - Service role
+        - SSR
+        - Web previews
         - Webhooks
-        - Not applicable
+        - Not Applicable
+    validations:
+      required: true
 
+  - type: markdown
+    attributes:
+      value: |
+        ## Details
   - type: textarea
     attributes:
       label: Describe the bug
       description: |
         A clear and concise description of what the bug is.
-
-        **Be sure to remove any sensitive data.**
     validations:
       required: true
   - type: textarea
@@ -87,10 +132,9 @@ body:
     attributes:
       label: Reproduction steps
       description: |
-        How do you trigger this bug? Please walk us through it step by step. 
+        How can this bug be reproduced? Please walk us through it step by step. 
         Screenshots can be provided in the issue body below.
 
-        **Be sure to remove any sensitive data.**
       placeholder: |
         1. 
         2.
@@ -104,11 +148,32 @@ body:
       description: |
         If applicable, please include relevant portions of your `amplify.yml`. 
 
-        **Do not include information that is sensitive in nature such as your domain name, company, etc.!**
+        **Be sure to remove any sensitive data.**
       render: yaml
+
+  - type: textarea
+    attributes:
+      label: Log output
+      description: |
+        For example, error messages, or stack traces.
+
+        **Be sure to remove any sensitive data.**
+
+      value: |
+        <details>
+
+        ```
+        # Put your logs below this line
+
+
+        ```
+
+        </details>
+
   - type: textarea
     attributes:
       label: Additional information
       description: |
         If you have any additional information, workarounds, etc. for us, use the field below.
+
         Please note, you can attach screenshots or screen recordings here, by dragging and dropping files in the field below.
