@@ -1,5 +1,3 @@
 ### Scripts
 
-Helper scripts used by the Amplify Hosting:
-
-**amplifyPush.sh:** A helper script that runs the Amplify CLI during the backend deployment phase of the build.
+**DEPRECATED-amplifyPush.sh:** A deprecated helper script that runs the Amplify CLI during the backend deployment phase of the build. It is recommended to let Amplify Hosting run the backend phase of the build by including `amplifyPush --simple` in your [amplify.yml](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html#frontend-with-backend). To manually run the Amplify CLI in headless mode, please refer to the [documentation](https://docs.amplify.aws/cli/usage/headless/).
