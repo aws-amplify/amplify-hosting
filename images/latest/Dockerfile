@@ -10,6 +10,7 @@ ENV VERSION_NODE_12=12
 ENV VERSION_NODE_14=14
 ENV VERSION_NODE_16=16
 ENV VERSION_NODE_17=17
+ENV VERSION_NODE_18=18
 ENV VERSION_NODE_DEFAULT=$VERSION_NODE_14
 ENV VERSION_RUBY_2_4=2.4.6
 ENV VERSION_RUBY_2_6=2.6.3
@@ -132,6 +133,9 @@ RUN /bin/bash -c ". ~/.nvm/nvm.sh && \
     npm install -g yarn@${VERSION_YARN} sm@${VERSION_SM} grunt-cli@${VERSION_GRUNT_CLI} bower@${VERSION_BOWER} vuepress@${VERSION_VUEPRESS} && \
     npm install -g --unsafe-perm=true gatsby-cli@${VERSION_GATSBY_CLI} && \
     nvm install $VERSION_NODE_17 && nvm use $VERSION_NODE_17 && chown -R root:root /root/.nvm && \
+    npm install -g yarn@${VERSION_YARN} sm@${VERSION_SM} grunt-cli@${VERSION_GRUNT_CLI} bower@${VERSION_BOWER} vuepress@${VERSION_VUEPRESS} && \
+    npm install -g --unsafe-perm=true gatsby-cli@${VERSION_GATSBY_CLI} && \
+    nvm install $VERSION_NODE_18 && nvm use $VERSION_NODE_18 && chown -R root:root /root/.nvm && \
     npm install -g yarn@${VERSION_YARN} sm@${VERSION_SM} grunt-cli@${VERSION_GRUNT_CLI} bower@${VERSION_BOWER} vuepress@${VERSION_VUEPRESS} && \
     npm install -g --unsafe-perm=true gatsby-cli@${VERSION_GATSBY_CLI} && \
     nvm alias default ${VERSION_NODE_DEFAULT} && nvm cache clear"
