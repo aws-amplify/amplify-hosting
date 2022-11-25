@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://aws.amazon.com/amplify/hosting/">
-    <img alt="Amplify" src="https://github.com/aws-amplify/community/blob/master/src/assets/images/logo-dark.png" width="60" />
+    <img alt="Amplify" src="https://pbs.twimg.com/profile_images/1114309924551417856/FKA4cm2x_400x400.png" width="60" />
   </a>
 </p>
 <h1 align="center">
@@ -30,9 +30,9 @@ AWS Amplify Hosting provides a Git-based workflow for deploying and hosting full
 
 Looking for one of our other projects?
 
-- [Amplify Admin UI](https://github.com/aws-amplify/amplify-adminui)
+- [Amplify Studio](https://github.com/aws-amplify/amplify-adminui)
 - [Amplify JS](https://github.com/aws-amplify/amplify-js/issues)
 - [Amplify iOS](https://github.com/aws-amplify/amplify-ios/issues)
 - [Amplify Android](https://github.com/aws-amplify/amplify-android/issues)
 - [Amplify CLI](https://github.com/aws-amplify/amplify-cli/issues)
-- [Amplify Community](https://amplify.aws/community)
+- [Amplify Discord](https://discord.com/invite/amplify)
