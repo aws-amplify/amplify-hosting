@@ -1,4 +1,4 @@
-name: Usage question
+name: ❓ Usage question
 description: Ask a question about AWS Amplify Hosting usage
 labels: ["question"]
 body:
