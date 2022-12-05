@@ -1,0 +1,6 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Amplify Hosting documentation
+    url: https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html
+  - name: Amplify Discord server
+    url: https://discord.com/invite/amplify
