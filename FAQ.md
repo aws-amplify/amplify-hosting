@@ -35,7 +35,8 @@
   - [[ERROR] AccessDenied: Access Denied](#error-accessdenied-access-denied)
   - [Environment Variables Workaround](#environment-variables-workaround)
   - [Access Lambda Edge Logs](#access-lambda-edge-logs)
-  - [500 error from CloudFront after migrating to WEB_COMPUTE](#500-error-from-CloudFront-after-migrating-to-web-compute)
+  - [SSR build fails: "target" property is no longer supported](#ssr-build-fails-target-property-is-no-longer-supported)
+  - [500 error from CloudFront after migrating to Amplify Hosting Compute](#500-error-from-cloudfront-when-migrating-to-amplify-hosting-compute)
 
 ## Builds
 
@@ -387,9 +388,9 @@ If you are updating your hosted Next.js 11 application to Next.js 12 or Next.js 
 2. Server-side logs delivered to Amazon CloudWatch
 3. Fully managed infrastructure to reduce operational overhead
 
-For step-by-step guide to migrate your application to Amplify Hosting Compute, check out our [docs](https://docs.aws.amazon.com/amplify/latest/userguide/update-app-nextjs-version.html)
+For a step-by-step guide to migrate your application to Amplify Hosting Compute, check out our [docs](https://docs.aws.amazon.com/amplify/latest/userguide/update-app-nextjs-version.html).
 
-### 500 error from CloudFront when migrating to WEB_COMPUTE
+### 500 error from CloudFront when migrating to Amplify Hosting Compute
 
 If you migrated your Next.js app from Classic (Next.js 11 or older) to Amplify Hosting Compute (Next.js 12 or 13), you may have run into a 500 error from CloudFront. This is because the rewrite rule created previously is pointing to the CloudFront distribution that is serving the older version of the application (Next.sj 11 or older). Ideally this rewrite rule is deleted during migration but this is a bug we are tracking to fix. In the mean time, you can mitigate this behavior by manually removing the rule.
 
