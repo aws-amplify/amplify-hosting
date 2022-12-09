@@ -35,6 +35,8 @@
   - [[ERROR] AccessDenied: Access Denied](#error-accessdenied-access-denied)
   - [Environment Variables Workaround](#environment-variables-workaround)
   - [Access Lambda Edge Logs](#access-lambda-edge-logs)
+  - [SSR build fails: "target" property is no longer supported](#ssr-build-fails-target-property-is-no-longer-supported)
+  - [500 error from CloudFront after migrating to Amplify Hosting Compute](#500-error-from-cloudfront-when-migrating-to-amplify-hosting-compute)
 
 ## Builds
 
@@ -262,7 +264,7 @@ frontend:
 
 If you are facing Webpack errors (_ModuleNotFound_ / _Cannot find module_) as a result of the new Webpack 5 default.
 
-First, you should check the troubleshooting guide provided by NextJS on this issue: https://nextjs.org/docs/messages/module-not-found. If you are still getting errors after following their guide. Your app may need to be built using the experimental-serverless-trace target. To opt-in into this behavior, you need to set the environment variable `AMPLIFY_NEXTJS_EXPERIMENTAL_TRACE=true` in your App settings. 
+First, you should check the troubleshooting guide provided by NextJS on this issue: https://nextjs.org/docs/messages/module-not-found. If you are still getting errors after following their guide. Your app may need to be built using the experimental-serverless-trace target. To opt-in into this behavior, you need to set the environment variable `AMPLIFY_NEXTJS_EXPERIMENTAL_TRACE=true` in your App settings.
 
 ![](assets/images/amplify_nextjs_experimental_trace_envvar.png)
 
@@ -378,6 +380,21 @@ Follow these steps to access logs for Lambda@Edge functions deployed with your N
 4. Click on the function and navigate to the `Monitor` tab. Select `View Logs in CloudWatch`
 5. If `Log group does not exist` error pops up, select `View existing log groups`. Search for the logs using your region and the Lambda@Edge function ID like so: `/aws/lambda/us-east-1.123abcd-lmnop1`.
 
+### SSR build fails: "target" property is no longer supported
+
+If you are updating your hosted Next.js 11 application to Next.js 12 or Next.js 13 then you may run into this error: `"target" property is no longer supported` when a deployment is triggered. You will need to migrate to Amplify Hosting Compute which was released in november, 2022 to support Next.js versions 12 and 13. This newly added support features:
+
+1. Deployments that are 3x faster
+2. Server-side logs delivered to Amazon CloudWatch
+3. Fully managed infrastructure to reduce operational overhead
+
+For a step-by-step guide to migrate your application to Amplify Hosting Compute, check out our [docs](https://docs.aws.amazon.com/amplify/latest/userguide/update-app-nextjs-version.html).
+
+### 500 error from CloudFront when migrating to Amplify Hosting Compute
+
+If you migrated your Next.js app from Classic (Next.js 11 or older) to Amplify Hosting Compute (Next.js 12 or 13), you may have run into a 500 error from CloudFront. This is because the rewrite rule created previously is pointing to the CloudFront distribution that is serving the older version of the application (Next.sj 11 or older). Ideally this rewrite rule is deleted during migration but this is a bug we are tracking to fix. In the mean time, you can mitigate this behavior by manually removing the rule.
+
+Navigate to **App Settings** -> **Rewrites and redirects** -> **Edit** -> **remove rule**.
 
 ### Migration To GitHub Apps
 
