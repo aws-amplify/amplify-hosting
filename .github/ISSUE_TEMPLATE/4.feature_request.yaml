@@ -1,6 +1,6 @@
 name: 🚀 Feature request
 description: Have an idea for the Amplify Hosting? Submit a request.
-labels: ["feature request"]
+labels: ["feature-request"]
 body:
   - type: markdown
     attributes:
