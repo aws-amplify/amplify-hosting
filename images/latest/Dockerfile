@@ -87,10 +87,10 @@ RUN yum -y update && \
     rm -rf /var/cache/yum
 
 ## Install Hugo
-RUN wget https://github.com/gohugoio/hugo/releases/download/v${VERSION_HUGO}/hugo_${VERSION_HUGO}_Linux-64bit.tar.gz && \
-    tar -xf hugo_${VERSION_HUGO}_Linux-64bit.tar.gz hugo -C / && \
+RUN wget https://github.com/gohugoio/hugo/releases/download/v${VERSION_HUGO}/hugo_extended_${VERSION_HUGO}_Linux-64bit.tar.gz && \
+    tar -xf hugo_extended_${VERSION_HUGO}_Linux-64bit.tar.gz hugo -C / && \
     mv /hugo /usr/bin/hugo && \
-    rm -rf hugo_${VERSION_HUGO}_Linux-64bit.tar.gz
+    rm -rf hugo_extended_${VERSION_HUGO}_Linux-64bit.tar.gz
 
 ## Install dotnet sdk and host 3.1
 RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
