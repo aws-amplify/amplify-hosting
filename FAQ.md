@@ -28,7 +28,7 @@
   - [CNAMEAlreadyExistsException](#cnamealreadyexistsexception)
 - [Web previews](#web-previews)
   - [Previews are not being created for new pull requests](#previews-are-not-being-created-for-new-pull-requests)
-- [SSR](#ssr)
+- [SSR (Web Dynamic)](#ssr-web-dynamic)
   - [Convert an SSR App to SSG](#convert-an-ssr-app-to-ssg)
   - [Webpack ModuleNotFound Errors](#webpack-modulenotfound-errors)
   - [NotImplemented Errors](#notimplemented-errors)
@@ -36,7 +36,9 @@
   - [Environment Variables Workaround](#environment-variables-workaround)
   - [Access Lambda Edge Logs](#access-lambda-edge-logs)
   - [SSR build fails: "target" property is no longer supported](#ssr-build-fails-target-property-is-no-longer-supported)
+- [SSR (Web Compute)](#ssr-web-compute)
   - [500 error from CloudFront after migrating to Amplify Hosting Compute](#500-error-from-cloudfront-when-migrating-to-amplify-hosting-compute)
+  - [Using monorepo frameworks](#using-monorepo-frameworks)
 
 ## Builds
 
