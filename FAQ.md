@@ -226,7 +226,7 @@ Common reasons why pull requests previews may not be created:
 
 - If you are using a public GitHub repository and your Amplify app has an IAM [service role](https://docs.aws.amazon.com/amplify/latest/userguide/how-to-service-role-amplify-console.html) associated to it, previews will not be created for security reasons. In this case, you can either disassociate the service role from your App if the app doesn't have a backend, or make the GitHub repository private.
 
-## SSR
+## SSR (Web Dynamic)
 
 **Amplify SSR Docs**: https://docs.aws.amazon.com/amplify/latest/userguide/server-side-rendering-amplify.html
 
@@ -390,12 +390,6 @@ If you are updating your hosted Next.js 11 application to Next.js 12 or Next.js 
 
 For a step-by-step guide to migrate your application to Amplify Hosting Compute, check out our [docs](https://docs.aws.amazon.com/amplify/latest/userguide/update-app-nextjs-version.html).
 
-### 500 error from CloudFront when migrating to Amplify Hosting Compute
-
-If you migrated your Next.js app from Classic (Next.js 11 or older) to Amplify Hosting Compute (Next.js 12 or 13), you may have run into a 500 error from CloudFront. This is because the rewrite rule created previously is pointing to the CloudFront distribution that is serving the older version of the application (Next.sj 11 or older). Ideally this rewrite rule is deleted during migration but this is a bug we are tracking to fix. In the mean time, you can mitigate this behavior by manually removing the rule.
-
-Navigate to **App Settings** -> **Rewrites and redirects** -> **Edit** -> **remove rule**.
-
 ### Migration To GitHub Apps
 
 As part of our new added [support for using GitHub Apps to authorize access to repositories](https://aws.amazon.com/about-aws/whats-new/2022/04/aws-amplify-hosting-github-access-workflows/), we require [single file read/write permission](https://docs.github.com/en/rest/overview/permissions-required-for-github-apps#permission-on-single-file) on the `amplify.yml` file to support creating/updating your `amplify.yml` from the AWS Amplify Console.
@@ -403,3 +397,15 @@ As part of our new added [support for using GitHub Apps to authorize access to r
 If you previously had our GitHub App installed for using our [PR Previews feature](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html), you would have received an email asking you to Accept/Reject this change to our GitHub App Permissions.
 
 To learn more about setting up GitHub access, check out our [docs](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html)
+
+## SSR (Web Compute)
+
+### 500 error from CloudFront when migrating to Amplify Hosting Compute
+
+If you migrated your Next.js app from Classic (Next.js 11 or older) to Amplify Hosting Compute (Next.js 12 or 13), you may have run into a 500 error from CloudFront. This is because the rewrite rule created previously is pointing to the CloudFront distribution that is serving the older version of the application (Next.sj 11 or older). Ideally this rewrite rule is deleted during migration but this is a bug we are tracking to fix. In the mean time, you can mitigate this behavior by manually removing the rule.
+
+Navigate to **App Settings** -> **Rewrites and redirects** -> **Edit** -> **remove rule**.
+
+### Using monorepo frameworks
+
+TBD
