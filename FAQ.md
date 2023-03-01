@@ -28,7 +28,7 @@
   - [CNAMEAlreadyExistsException](#cnamealreadyexistsexception)
 - [Web previews](#web-previews)
   - [Previews are not being created for new pull requests](#previews-are-not-being-created-for-new-pull-requests)
-- [SSR](#ssr)
+- [SSR (Web Dynamic)](#ssr-web-dynamic)
   - [Convert an SSR App to SSG](#convert-an-ssr-app-to-ssg)
   - [Webpack ModuleNotFound Errors](#webpack-modulenotfound-errors)
   - [NotImplemented Errors](#notimplemented-errors)
@@ -36,7 +36,7 @@
   - [Environment Variables Workaround](#environment-variables-workaround)
   - [Access Lambda Edge Logs](#access-lambda-edge-logs)
   - [SSR build fails: "target" property is no longer supported](#ssr-build-fails-target-property-is-no-longer-supported)
-- [Compute](#compute)
+- [SSR (Web Compute)](#ssr-web-compute)
   - [500 error from CloudFront after migrating to Amplify Hosting Compute](#500-error-from-cloudfront-when-migrating-to-amplify-hosting-compute)
   - [Measure Compute app's initialization/start up time locally](#measure-compute-apps-initializationstart-up-time-locally)
 
@@ -228,7 +228,7 @@ Common reasons why pull requests previews may not be created:
 
 - If you are using a public GitHub repository and your Amplify app has an IAM [service role](https://docs.aws.amazon.com/amplify/latest/userguide/how-to-service-role-amplify-console.html) associated to it, previews will not be created for security reasons. In this case, you can either disassociate the service role from your App if the app doesn't have a backend, or make the GitHub repository private.
 
-## SSR
+## SSR (Web Dynamic)
 
 **Amplify SSR Docs**: https://docs.aws.amazon.com/amplify/latest/userguide/server-side-rendering-amplify.html
 
@@ -400,7 +400,7 @@ If you previously had our GitHub App installed for using our [PR Previews featur
 
 To learn more about setting up GitHub access, check out our [docs](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html)
 
-## Compute
+## SSR (Web Compute)
 
 ### 500 error from CloudFront when migrating to Amplify Hosting Compute
 
