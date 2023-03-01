@@ -410,7 +410,7 @@ Navigate to **App Settings** -> **Rewrites and redirects** -> **Edit** -> **remo
 
 ### Measure Compute app's initialization/start up time locally
 
-The following steps will help you determine the initialization/start up time of your Next.js 12/13 (Compute) app locally and it will enable you to do a comparison better your app's performance locally v/s on Amplify Hosting:
+The following steps will help you determine the initialization/start up time of your Next.js 12/13 (Compute) app locally and it will enable you to do a comparison to better your app's performance locally v/s on Amplify Hosting:
 
 1. Set the `output` option to `standalone` in the `next.config.js` file:
 
