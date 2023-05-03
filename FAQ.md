@@ -39,7 +39,7 @@
 - [SSR (Web Compute)](#ssr-web-compute)
   - [500 error from CloudFront after migrating to Amplify Hosting Compute](#500-error-from-cloudfront-when-migrating-to-amplify-hosting-compute)
   - [Measure Compute app's initialization/start up time locally](#measure-compute-apps-initializationstart-up-time-locally)
-- [Manual Deployments](#)
+- [Manual Deployments](#deployments-or-jobs-are-stuck-with-a-pending-status-in-the-amplify-console)
 
 ## Builds
 
