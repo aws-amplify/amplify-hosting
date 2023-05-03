@@ -462,7 +462,7 @@ If the page uses `getServerSideProps` or `getInitialProps`, the `cache-control` 
 
 If the page uses `getStaticProps`, the `cache-control` header from Next.js will return the following values `cache-control: public, max-age=31536000, immutable`.
 
-Amazon CloudFront does not currently support cache invalidation on deployment and instead relies on `cache-control` headers to evict old assets from cache. Once the deployment is complete, Amazon CloudFront may keep the old HTML pages in cache for 24 hours (max cache TTL) and return it to users but it may evict the assets required by the old homepage (such as JS/CSS files) from the cache.
+Amplify does not currently support cache invalidation on deployment and instead relies on `cache-control` headers to evict old assets from cache. Once the deployment is complete, Amazon CloudFront may keep the old HTML pages in cache for 24 hours (max cache TTL) and return it to users but it may evict the assets required by the old homepage (such as JS/CSS files) from the cache.
 
 When a user visits the website homepage, they are served with the `index.html` file from the previous deployment (cached by the CDN), which in turn tries to fetch the older assets (evicted from the CDN cache) and gets 404 errors from Amplify Hosting Compute since that asset is no longer hosted by the latest deployment.
 
