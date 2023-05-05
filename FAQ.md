@@ -39,6 +39,7 @@
 - [SSR (Web Compute)](#ssr-web-compute)
   - [500 error from CloudFront after migrating to Amplify Hosting Compute](#500-error-from-cloudfront-when-migrating-to-amplify-hosting-compute)
   - [Measure Compute app's initialization/start up time locally](#measure-compute-apps-initializationstart-up-time-locally)
+  - [Static assets (js, css, images, and other media) returning 404s after performing a deployment](#static-assets-js-css-images-and-other-media-returning-404s-after-performing-a-deployment)
 - [Manual Deployments](#manual-deployments)
   - [Deployments or jobs are stuck with a pending status in the Amplify Console](#deployments-or-jobs-are-stuck-with-a-pending-status-in-the-amplify-console)
 
@@ -454,6 +455,28 @@ Listening on port 3000
 7. Note how long it takes between step 6 and for any other modules to load once the server has started. For example, libraries like [bugsnag](https://www.npmjs.com/package/bugsnag) will take 10-12 seconds to load. Once loaded it will print a message like so: `[bugsnag] loaded`
 
 Add the durations from Step 6 and Step 7, this will be your Compute app's initialization/start up time.
+
+### Static assets (js, css, images, and other media) returning 404s after performing a deployment
+
+By default, Next.js sets the `cache-control` header differently based on how your page fetches data.
+
+If the page uses `getServerSideProps` or `getInitialProps`, the `cache-control` header from Next.js will return the following values `cache-control: s-maxage=31536000, stale-while-revalidate`. AWS Amplify's CDN Amazon CloudFront does not currently support `stale-while-revalidate`
+
+If the page uses `getStaticProps`, the `cache-control` header from Next.js will return the following values `cache-control: public, max-age=31536000, immutable`.
+
+Amplify does not currently support cache invalidation on deployment and instead relies on `cache-control` headers to evict old assets from cache. Once the deployment is complete, Amazon CloudFront may keep the old HTML pages in cache for 24 hours (max cache TTL) and return it to users but it may evict the assets required by the old homepage (such as JS/CSS files) from the cache.
+
+When a user visits the website homepage, they are served with the `index.html` file from the previous deployment (cached by the CDN), which in turn tries to fetch the older assets (evicted from the CDN cache) and gets 404 errors from Amplify Hosting Compute since that asset is no longer hosted by the latest deployment.
+
+To mitigate this, you will need to update the `cache-control` header for your HTML pages within the `customHttp.yml` file as follows:
+
+```
+customHeaders:
+  - pattern: /
+    headers:
+      - key: Cache-Control
+        value: s-maxage=10
+```
 
 ## Manual Deployments
 
