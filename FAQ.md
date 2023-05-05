@@ -40,6 +40,8 @@
   - [500 error from CloudFront after migrating to Amplify Hosting Compute](#500-error-from-cloudfront-when-migrating-to-amplify-hosting-compute)
   - [Measure Compute app's initialization/start up time locally](#measure-compute-apps-initializationstart-up-time-locally)
   - [Static assets (js, css, images, and other media) returning 404s after performing a deployment](#static-assets-js-css-images-and-other-media-returning-404s-after-performing-a-deployment)
+- [Manual Deployments](#manual-deployments)
+  - [Deployments or jobs are stuck with a pending status in the Amplify Console](#deployments-or-jobs-are-stuck-with-a-pending-status-in-the-amplify-console)
 
 ## Builds
 
@@ -475,3 +477,30 @@ customHeaders:
       - key: Cache-Control
         value: s-maxage=10
 ```
+
+## Manual Deployments
+
+### Deployments or jobs are stuck with a pending status in the Amplify Console
+
+Manual deploys allow you to publish your web app with Amplify Hosting without connecting a git provider. This can be achieved using the following methods:
+
+1. Drag and drop your application folder in the Amplify Console
+2. Drag and drop a zip file (that contains the build artifacts of your site) in the Amplify Console
+3. Upload the zip file (that contains the build artifacts of your site) to an Amazon S3 bucket and connect the S3 bucket to an app in the Amplify Console
+4. Use a public URL that points to a zip file (that contains the build artifacts of your site) in the Amplify Console
+
+We are aware of issues with the `drag and drop` functionality when using application folders [1] for manual deployments in the Amplify Console. The deployments can fail due to a number of reasons such as:
+
+- Transient network issues
+- If the files change locally while being uploaded
+- Browser session attempts to upload a large amount of static assets simulatenously
+
+While we work on improving the reliability of our `drag and drop` uploads, we recommend our customers to use a zip file instead of dragging and dropping the application folders.
+
+An even better approach is to upload a zip file to an Amazon S3 bucket as this avoids file uploads from the Amplify Console which should offer a higher reliability for manual deployments. Furthermore, you can automatically trigger updates to your site using the Amplify Console, S3, and AWS Lambda by referring to this [blog post](https://aws.amazon.com/blogs/mobile/deploy-files-s3-dropbox-amplify-console/).
+
+To unblock your current deployments in `pending` state, please run the following [stop-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/amplify/stop-job.html) CLI command using the AWS CLI for each frozen deployment:
+
+`aws amplify stop-job --app-id {VALUE} --branch-name {VALUE} --job-id {VALUE}`
+
+This CLI command will cancel the pending jobs and will enable you to retry a new manual deployment.
