@@ -20,6 +20,7 @@
     - [How do I reduce the cache size?](#how-do-i-reduce-the-cache-size)
     - [How do I disable reading from cache?](#how-do-i-disable-reading-from-cache)
   - [Migration To GitHub Apps](#migration-to-github-apps)
+  - [Using pnpm as a package manager](#using-pnpm-as-a-package-manager)
 - [Redirects](#redirects)
   - [Access denied for certain routes even with SPA redirect rule](#access-denied-for-certain-routes-even-with-spa-redirect-rule)
   - [Reverse Proxying to external API](#reverse-proxying-to-external-api)
@@ -402,6 +403,16 @@ As part of our new added [support for using GitHub Apps to authorize access to r
 If you previously had our GitHub App installed for using our [PR Previews feature](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html), you would have received an email asking you to Accept/Reject this change to our GitHub App Permissions.
 
 To learn more about setting up GitHub access, check out our [docs](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html)
+
+### Using pnpm as a package manager
+
+If your application uses pnpm as a package manager you may encounter issues with your application not working due to HTTP Error 500 when deployed. Additionally, you may find yourself having difficulties building your app due to the size of the build output exceeding the max allowed size. It's likely related to the way Amplify handles symlinks created by pnpm's default node linker (isolated).
+
+The issue arises because Amplify has changed the way it supports symlinks. This has impacted applications that use pnpm and the isolated node linker, as it relies on symlinks from a virtual store at `node_modules/.pnpm`.
+
+To resolve this issue, you need to switch to using the hoisted node linker by setting `node-linker=hoisted` in the `.npmrc` file. The hoisted node linker creates a flat node_modules without symlinks, similar to the node_modules created by npm or Yarn Classic.
+
+Please note that this modification to the `.npmrc` file will be necessary moving forward in order to successfully host applications using pnpm as a package manager.
 
 ## SSR (Web Compute)
 
