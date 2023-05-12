@@ -13,7 +13,7 @@
   - [New commits are not triggering builds on Amplify](#new-commits-are-not-triggering-builds-on-amplify)
   - [I do not see my repo in the list](#i-do-not-see-my-repo-in-the-list)
   - [Build fails with _Cannot find module aws-exports_](#build-fails-with-cannot-find-module-aws-exports)
-  - [Preview build fails with _SSM parameter errors_](#preview-build-fails-with-ssm-parameter-errors)
+  - [Build fails with _SSM parameter errors_](#build-fails-with-ssm-parameter-errors)
   - [How do I override a build timeout?](#how-do-i-override-a-build-timeout)
   - [How do I pull private packages during a build?](#how-do-i-pull-private-packages-during-a-build)
   - [How do I run Amplify functions with Python runtime?](#how-do-i-run-amplify-functions-with-python-runtime)
@@ -76,12 +76,12 @@ backend:
         - "# Execute Amplify CLI with the helper script"
         - amplifyPush --simple
 ```
-### Preview build fails with _SSM parameter errors_
+### Build fails with _SSM parameter errors_
 
-Amplify CLI version 11 started using Parameter Store from AWS Systems Manager (SSM). In case of preview builds, you would now have to ensure that certain values like Imported backend resources (Storage/Auth) details or Lambda function environment variables have corresponding SSM paramters created manually. You might observe the following errors in this scenario -
+Amplify CLI version 11 started using Parameter Store from AWS Systems Manager (SSM). A sucessful Amplify CLI push performed locally will create the required SSM parameters. However, in case of preview builds or builds where backend is directly pushed through Amplify Hosting, you would need to ensure that certain values for Imported backend resources (Storage/Auth) details or Lambda function environment variables should have corresponding SSM paramters created manually. You might observe the following errors in this scenario
 
 1. `This environment is missing some parameter values` - You can refer the documentation [here](https://docs.amplify.aws/cli/reference/ssm-parameter-store/#manually-creating-parameters) for manually creating the required SSM parameters. 
-3. `Failed to download the following parameters from ParameterStore` - You need to ensure that the desired value is enclosed in quotes so that the value will be parsed using JSON.parse().
+2. `Failed to download the following parameters from ParameterStore` - You need to ensure that the desired value is enclosed in quotes so that the value will be parsed using JSON.parse().
 
 ### How do I override a build timeout?
 
