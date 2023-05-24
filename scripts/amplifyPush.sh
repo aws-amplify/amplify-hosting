@@ -21,17 +21,17 @@ init_env () {
     if [[ -z ${STACKINFO} ]];
     then
         echo "# Initializing new Amplify environment: ${ENV} (amplify init)"
-        if [[ -z ${CATEGORIES} ]]; then amplify init --amplify ${AMPLIFY} --providers ${PROVIDERS} --codegen ${CODEGEN} --yes --forcePush; else amplify init --amplify ${AMPLIFY} --providers ${PROVIDERS} --codegen ${CODEGEN} --categories ${CATEGORIES} --yes --forcePush; fi
+        if [[ -z ${CATEGORIES} ]]; then amplify init --amplify "${AMPLIFY}" --providers "${PROVIDERS}" --codegen "${CODEGEN}" --yes --forcePush; else amplify init --amplify "${AMPLIFY}" --providers "${PROVIDERS}" --codegen "${CODEGEN}" --categories "${CATEGORIES}" --yes --forcePush; fi
         echo "# Environment ${ENV} details:"
-        amplify env get --name ${ENV}
+        amplify env get --name "${ENV}"
     else
-        echo "STACKINFO="${STACKINFO}
+        echo "STACKINFO=${STACKINFO}"
         echo "# Importing Amplify environment: ${ENV} (amplify env import)"
-        amplify env import --name ${ENV} --config "${STACKINFO}" --awsInfo ${AWSCONFIG} --yes;
+        amplify env import --name "${ENV}" --config "${STACKINFO}" --awsInfo "${AWSCONFIG}" --yes;
         echo "# Initializing existing Amplify environment: ${ENV} (amplify init)"
-        if [[ -z ${CATEGORIES} ]]; then amplify init --amplify ${AMPLIFY} --providers ${PROVIDERS} --codegen ${CODEGEN} --yes --forcePush; else amplify init --amplify ${AMPLIFY} --providers ${PROVIDERS} --codegen ${CODEGEN} --categories ${CATEGORIES} --yes --forcePush; fi
+        if [[ -z ${CATEGORIES} ]]; then amplify init --amplify "${AMPLIFY}" --providers "${PROVIDERS}" --codegen "${CODEGEN}" --yes --forcePush; else amplify init --amplify "${AMPLIFY}" --providers "${PROVIDERS}" --codegen "${CODEGEN}" --categories "${CATEGORIES}" --yes --forcePush; fi
         echo "# Environment ${ENV} details:"
-        amplify env get --name ${ENV}
+        amplify env get --name "${ENV}"
     fi
     echo "# Done initializing Amplify environment: ${ENV}"
 }
@@ -75,55 +75,68 @@ then
 fi
 
 # strip slashes, limit to 10 chars
-ENV=$(echo ${ENV} | sed 's;\\;;g' | sed 's;\/;;g' | cut -c -10)
+ENV=$(echo "${ENV}" | sed 's;\\;;g' | sed 's;\/;;g' | cut -c -10)
 
 # Check valid environment name
 if [[ -z ${ENV} || "${ENV}" =~ [^a-zA-Z0-9\-]+ ]] ; then help_output ; fi
 
-AWSCONFIG="{\
-\"configLevel\":\"project\",\
-\"useProfile\":true,\
-\"profileName\":\"default\",\
-\"AmplifyAppId\":\"${AWS_APP_ID}\"\
-}"
-AMPLIFY="{\
-\"envName\":\"${ENV}\",\
-\"appId\":\"${AWS_APP_ID}\"\
-}"
-PROVIDERS="{\
-\"awscloudformation\":${AWSCONFIG}\
-}"
-CODEGEN="{\
-\"generateCode\":false,\
-\"generateDocs\":false\
-}"
+read -r -d 'END' AWSCONFIG << EOM
+{
+  "configLevel":"project",
+  "useProfile":true,
+  "profileName":"default",
+  "AmplifyAppId":"${AWS_APP_ID}"
+}END
+EOM
+read -r -d 'END' AMPLIFY << EOM
+{
+  "envName":"${ENV}",
+  "appId":"${AWS_APP_ID}"
+}END
+EOM
+read -r -d 'END' PROVIDERS << EOM
+{
+  "awscloudformation":${AWSCONFIG}
+}END
+EOM
+read -r -d 'END' CODEGEN << EOM
+{
+  "generateCode":false,
+  "generateDocs":false
+}END
+EOM
 CATEGORIES=""
 if [[ -z ${AMPLIFY_FACEBOOK_CLIENT_ID} && -z ${AMPLIFY_GOOGLE_CLIENT_ID} && -z ${AMPLIFY_AMAZON_CLIENT_ID} ]]; then
     CATEGORIES=""
 else
-    AUTHCONFIG="{\
-    \"facebookAppIdUserPool\":\"${AMPLIFY_FACEBOOK_CLIENT_ID}\",\
-    \"facebookAppSecretUserPool\":\"${AMPLIFY_FACEBOOK_CLIENT_SECRET}\",\
-    \"googleAppIdUserPool\":\"${AMPLIFY_GOOGLE_CLIENT_ID}\",\
-    \"googleAppSecretUserPool\":\"${AMPLIFY_GOOGLE_CLIENT_SECRET}\",\
-    \"amazonAppIdUserPool\":\"${AMPLIFY_AMAZON_CLIENT_ID}\",\
-    \"amazonAppSecretUserPool\":\"${AMPLIFY_AMAZON_CLIENT_SECRET}\"\
-    }"
-    CATEGORIES="{\
-    \"auth\":$AUTHCONFIG\
-    }"
+    read -r -d 'END' AUTHCONFIG << EOM
+{
+  "facebookAppIdUserPool":"${AMPLIFY_FACEBOOK_CLIENT_ID}",
+  "facebookAppSecretUserPool":"${AMPLIFY_FACEBOOK_CLIENT_SECRET}",
+  "googleAppIdUserPool":"${AMPLIFY_GOOGLE_CLIENT_ID}",
+  "googleAppSecretUserPool":"${AMPLIFY_GOOGLE_CLIENT_SECRET}",
+  "amazonAppIdUserPool":"${AMPLIFY_AMAZON_CLIENT_ID}",
+  "amazonAppSecretUserPool":"${AMPLIFY_AMAZON_CLIENT_SECRET}"
+}END
+EOM
+    read -r -d 'END' CATEGORIES << EOM
+{
+  "auth":$AUTHCONFIG
+}END
+EOM
 fi
 # Handle old or new config file based on simple flag
 if [[ ${IS_SIMPLE} ]];
 then
     echo "# Getting Amplify CLI Cloud-Formation stack info from environment cache"
-    export STACKINFO="$(envCache --get stackInfo)"
-    init_env ${ENV} ${AMPLIFY} ${PROVIDERS} ${CODEGEN} ${AWSCONFIG} ${CATEGORIES}
+    STACKINFO="$(envCache --get stackInfo)"
+    export STACKINFO
+    init_env "${ENV}" "${AMPLIFY}" "${PROVIDERS}" "${CODEGEN}" "${AWSCONFIG}" "${CATEGORIES}"
     echo "# Store Amplify CLI Cloud-Formation stack info in environment cache"
-    STACKINFO="$(amplify env get --json --name ${ENV})"
-    envCache --set stackInfo ${STACKINFO}
-    echo "STACKINFO="${STACKINFO}
+    STACKINFO="$(amplify env get --json --name "${ENV}")"
+    envCache --set stackInfo "${STACKINFO}"
+    echo "STACKINFO=${STACKINFO}"
 else
     # old config file, above steps performed outside of this script
-    init_env ${ENV} ${AMPLIFY} ${PROVIDERS} ${CODEGEN} ${AWSCONFIG} ${CATEGORIES}
+    init_env "${ENV}" "${AMPLIFY}" "${PROVIDERS}" "${CODEGEN}" "${AWSCONFIG}" "${CATEGORIES}"
 fi
