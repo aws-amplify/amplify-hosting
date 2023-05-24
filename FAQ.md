@@ -40,6 +40,7 @@
   - [500 error from CloudFront after migrating to Amplify Hosting Compute](#500-error-from-cloudfront-when-migrating-to-amplify-hosting-compute)
   - [Measure Compute app's initialization/start up time locally](#measure-compute-apps-initializationstart-up-time-locally)
   - [Static assets (js, css, images, and other media) returning 404s after performing a deployment](#static-assets-js-css-images-and-other-media-returning-404s-after-performing-a-deployment)
+  - [Support for monorepo framework](#support-for-monorepo-framework)
 - [Manual Deployments](#manual-deployments)
   - [Deployments or jobs are stuck with a pending status in the Amplify Console](#deployments-or-jobs-are-stuck-with-a-pending-status-in-the-amplify-console)
 
@@ -477,6 +478,60 @@ customHeaders:
       - key: Cache-Control
         value: s-maxage=10
 ```
+
+### Support for monorepo framework
+
+Amplify now supports apps in generic monorepos as well as apps in monorepos created using npm workspace, pnpm workspace, Yarn workspace, Nx, and Turborepo. When you deploy your app, Amplify automatically detects the monorepo framework that you are using. 
+
+Note that PNPM apps require additional configuration.
+
+PNPM gets configuration information from .npmrc files. When you deploy a monorepo app created by PNPM, you must have an `.npmrc` file in your project root directory.
+
+In the `.npmrc` file, you need to set the linker for installing Node packages to `hoisted`. You can copy the following line to your file:
+
+```
+node-linker=hoisted
+```
+
+Pnpm is not included in the Amplify default build container. If you are using PNPM as your package manager, you must add a command to install pnpm in the preBuild phase of your app's build settings.
+The following example excerpt from a build specification shows a preBuild phase with a command to install pnpm:
+
+```
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - npm install -g pnpm
+```
+
+
+We also introduced the new `buildPath` attribute in the buildSpec. If you want to build your application under the project root folder, you can set buildPath to `/`. Note that the baseDirectory is the relative path of buildPath (if specified). 
+
+For example, an app using the following buildSpec will be built under project root and the build artifacts will be located at `/packages/nextjs-app/.next`
+
+```
+applications:
+  - frontend:
+      buildPath: '/'  # run install and build from monorepo project root
+      phases:
+        preBuild:
+          commands:
+            - npm install
+        build:
+          commands:
+            - npm run build --workspace=nextjs-app
+      artifacts:
+        baseDirectory: packages/nextjs-app/.next
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+    appRoot: packages/nextjs-app
+```
+
 
 ## Manual Deployments
 
