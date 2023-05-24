@@ -74,11 +74,11 @@ then
     ENV=${USER_BRANCH}
 fi
 
-# strip slashes, limit to 10 chars
-ENV=$(echo "${ENV}" | sed 's;\\;;g' | sed 's;\/;;g' | cut -c -10)
+# strip slashes and dashes, limit to 10 chars
+ENV=$(echo "${ENV}" | sed 's;\\;;g ; s;\/;;g ; s;-;;g' | cut -c -10)
 
 # Check valid environment name
-if [[ -z ${ENV} || "${ENV}" =~ [^a-zA-Z0-9\-]+ ]] ; then help_output ; fi
+if [[ -z ${ENV} || "${ENV}" =~ [^a-zA-Z0-9]+ ]] ; then help_output ; fi
 
 read -r -d 'END' AWSCONFIG << EOM
 {
