@@ -21,7 +21,7 @@ init_env () {
     if [[ -z ${STACKINFO} ]];
     then
         echo "# Initializing new Amplify environment: ${ENV} (amplify init)"
-        [[ -z ${CATEGORIES} ]] && amplify init --amplify ${AMPLIFY} --providers ${PROVIDERS} --codegen ${CODEGEN} --yes || amplify init --amplify ${AMPLIFY} --providers ${PROVIDERS} --codegen ${CODEGEN} --categories ${CATEGORIES} --yes
+        [[ -z ${CATEGORIES} ]] && amplify init --amplify ${AMPLIFY} --providers ${PROVIDERS} --codegen ${CODEGEN} --yes --forcePush || amplify init --amplify ${AMPLIFY} --providers ${PROVIDERS} --codegen ${CODEGEN} --categories ${CATEGORIES} --yes --forcePush
         echo "# Environment ${ENV} details:"
         amplify env get --name ${ENV}
     else
@@ -29,7 +29,7 @@ init_env () {
         echo "# Importing Amplify environment: ${ENV} (amplify env import)"
         amplify env import --name ${ENV} --config "${STACKINFO}" --awsInfo ${AWSCONFIG} --yes;
         echo "# Initializing existing Amplify environment: ${ENV} (amplify init)"
-        [[ -z ${CATEGORIES} ]] && amplify init --amplify ${AMPLIFY} --providers ${PROVIDERS} --codegen ${CODEGEN} --yes || amplify init --amplify ${AMPLIFY} --providers ${PROVIDERS} --codegen ${CODEGEN} --categories ${CATEGORIES} --yes
+        [[ -z ${CATEGORIES} ]] && amplify init --amplify ${AMPLIFY} --providers ${PROVIDERS} --codegen ${CODEGEN} --yes --forcePush || amplify init --amplify ${AMPLIFY} --providers ${PROVIDERS} --codegen ${CODEGEN} --categories ${CATEGORIES} --yes --forcePush
         echo "# Environment ${ENV} details:"
         amplify env get --name ${ENV}
     fi
@@ -39,7 +39,7 @@ init_env () {
 ENV=""
 IS_SIMPLE=false
 POSITIONAL=()
-while [[ $# -gt 0 ]]
+while [[ $# -gt 0 ]];
     do
     key="$1"
     case ${key} in
