@@ -129,12 +129,12 @@ fi
 if [[ ${IS_SIMPLE} ]];
 then
     echo "# Getting Amplify CLI Cloud-Formation stack info from environment cache"
-    STACKINFO="$(envCache --get stackInfo)"
+    STACKINFO="$(envCache --get stackinfo)"
     export STACKINFO
     init_env "${ENV}" "${AMPLIFY}" "${PROVIDERS}" "${CODEGEN}" "${AWSCONFIG}" "${CATEGORIES}"
     echo "# Store Amplify CLI Cloud-Formation stack info in environment cache"
     STACKINFO="$(amplify env get --json --name "${ENV}")"
-    envCache --set stackInfo "${STACKINFO}"
+    envCache --set stackinfo "${STACKINFO}"
     echo "STACKINFO=${STACKINFO}"
 else
     # old config file, above steps performed outside of this script
