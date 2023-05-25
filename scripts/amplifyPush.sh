@@ -63,6 +63,8 @@ while [[ $# -gt 0 ]];
 done
 set -- "${POSITIONAL[@]}"
 
+if [ -n "$AWS_BACKEND_ENVIRONMENT_ARN" ]; then ENV=${AWS_BACKEND_ENVIRONMENT_ARN##*/}; fi;
+
 # if no provided environment name, use default env variable, then user override
 if [[ ${ENV} = "" ]];
 then
@@ -129,12 +131,12 @@ fi
 if [[ ${IS_SIMPLE} ]];
 then
     echo "# Getting Amplify CLI Cloud-Formation stack info from environment cache"
-    STACKINFO="$(envCache --get stackinfo)"
+    STACKINFO="$(envCache --get stackInfo)"
     export STACKINFO
     init_env "${ENV}" "${AMPLIFY}" "${PROVIDERS}" "${CODEGEN}" "${AWSCONFIG}" "${CATEGORIES}"
     echo "# Store Amplify CLI Cloud-Formation stack info in environment cache"
     STACKINFO="$(amplify env get --json --name "${ENV}")"
-    envCache --set stackinfo "${STACKINFO}"
+    envCache --set stackInfo "${STACKINFO}"
     echo "STACKINFO=${STACKINFO}"
 else
     # old config file, above steps performed outside of this script
