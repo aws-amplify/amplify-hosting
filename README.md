@@ -21,7 +21,7 @@ AWS Amplify Hosting provides a git-based workflow for hosting full-stack serverl
 
 - [Issue tracking](https://github.com/aws-amplify/amplify-hosting/issues)
 - [Troubleshooting guide](https://github.com/aws-amplify/amplify-hosting/blob/master/FAQ.md)
-- [Build images](https://github.com/aws-amplify/amplify-hosting/tree/master/images)
+- [Build images - DEPRECATED](https://github.com/aws-amplify/amplify-hosting/tree/master/images)
 - [Changelog](https://github.com/aws-amplify/amplify-hosting/blob/master/CHANGELOG.md)
 
 ### Bookmarks
