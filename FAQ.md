@@ -79,7 +79,7 @@ backend:
 
 ### How do I override a build timeout?
 
-The default build timeout is 30 minutes. You can override the default build timeout using an environment variable: `_BUILD_TIMEOUT` (App settings > Environment variables). The minimum build timeout is 5 minutes. The maximum build timeout is 120 minutes.
+The default build timeout is 30 minutes. You can override the default build timeout using an environment variable: `_BUILD_TIMEOUT` (App settings > Environment variables). The minimum build timeout is 5 minutes. The maximum build timeout is 480 minutes i.e, 8 hours.
 
 ### How do I pull private packages during a build?
 
