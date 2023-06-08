@@ -156,8 +156,10 @@ To associate a `PRODUCTION` stage to your app’s branch, you will need to compl
 - Navigate to the Amplify Console and select the Amplify app
 - Under `App settings` navigate to `General`
 - Click the `Edit` button which is located on the top right corner of the console
-- Under the `Repository settings` section, navigate to the `Production environment` field
-- From the `Production environment` field dropdown, select the desired branch name
+- Under the `Repository settings` section, navigate to the `Production environment/branch` field:
+  - `Production environment` -> Manually deployed apps
+  - `Production branch` -> CI/CD deployed apps
+- From the `Production environment/branch` field dropdown, select the desired branch name
 - Click the `Save` button
 - Navigate to the `All Apps` view in the Amplify Console
 
