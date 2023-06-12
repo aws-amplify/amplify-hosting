@@ -20,6 +20,8 @@
     - [How do I reduce the cache size?](#how-do-i-reduce-the-cache-size)
     - [How do I disable reading from cache?](#how-do-i-disable-reading-from-cache)
   - [Migration To GitHub Apps](#migration-to-github-apps)
+- [Console](#console)
+  - [Amplify app not showing build status and last updated time in the Amplify Console all apps view](#amplify-app-not-showing-build-status-and-last-updated-time-in-the-amplify-console-all-apps-view)
 - [Redirects](#redirects)
   - [Access denied for certain routes even with SPA redirect rule](#access-denied-for-certain-routes-even-with-spa-redirect-rule)
   - [Reverse Proxying to external API](#reverse-proxying-to-external-api)
@@ -140,6 +142,28 @@ cache:
 #### How do I disable reading from cache?
 
 Remove the cache section from your buildspec.
+
+## Console
+
+### Amplify app not showing build status and last updated time in the Amplify Console all apps view
+
+This particular behavior can occur if your Amplify app does not have a `PRODUCTION` [stage](https://docs.aws.amazon.com/amplify/latest/APIReference/API_CreateBranch.html#amplify-CreateBranch-request-stage) branch associated to it.
+
+To list the apps in the Amplify Console UI, we use the [ListApps API](https://docs.aws.amazon.com/amplify/latest/APIReference/API_ListApps.html) and it uses the `status` attribute of the production branch to display the build status and last deploy time: https://docs.aws.amazon.com/amplify/latest/APIReference/API_ProductionBranch.html#amplify-Type-ProductionBranch-status
+
+To associate a `PRODUCTION` stage to your app’s branch, you will need to complete the following steps:
+
+- Navigate to the Amplify Console and select the Amplify app
+- Under `App settings` navigate to `General`
+- Click the `Edit` button which is located on the top right corner of the console
+- Under the `Repository settings` section, navigate to the `Production environment/branch` field:
+  - `Production environment` -> Manually deployed apps
+  - `Production branch` -> CI/CD deployed apps
+- From the `Production environment/branch` field dropdown, select the desired branch name
+- Click the `Save` button
+- Navigate to the `All Apps` view in the Amplify Console
+
+Your Amplify app should now display the build status and the last deploy time.
 
 ## Redirects
 
@@ -481,7 +505,7 @@ customHeaders:
 
 ### Support for monorepo framework
 
-Amplify now supports apps in generic monorepos as well as apps in monorepos created using npm workspace, pnpm workspace, Yarn workspace, Nx, and Turborepo. When you deploy your app, Amplify automatically detects the monorepo framework that you are using. 
+Amplify now supports apps in generic monorepos as well as apps in monorepos created using npm workspace, pnpm workspace, Yarn workspace, Nx, and Turborepo. When you deploy your app, Amplify automatically detects the monorepo framework that you are using.
 
 Note that PNPM apps require additional configuration.
 
@@ -506,8 +530,7 @@ applications:
             - npm install -g pnpm
 ```
 
-
-We also introduced the new `buildPath` attribute in the buildSpec. If you want to build your application under the project root folder, you can set buildPath to `/`. Note that the baseDirectory is the relative path of buildPath (if specified). 
+We also introduced the new `buildPath` attribute in the buildSpec. If you want to build your application under the project root folder, you can set buildPath to `/`. Note that the baseDirectory is the relative path of buildPath (if specified).
 
 For example, an app using the following buildSpec will be built under project root and the build artifacts will be located at `/packages/nextjs-app/.next`
 
@@ -531,7 +554,6 @@ applications:
           - node_modules/**/*
     appRoot: packages/nextjs-app
 ```
-
 
 ## Manual Deployments
 
