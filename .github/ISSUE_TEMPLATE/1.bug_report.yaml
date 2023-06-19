@@ -1,6 +1,6 @@
 name: 🐞 Bug report
 description: Create a report to help us improve Amplify Hosting
-labels: ["bug", "pending-triage"]
+labels: ["pending-triage"]
 body:
   - type: markdown
     attributes:
@@ -45,6 +45,7 @@ body:
 
         arn:aws:amplify:AWS-REGION:accountId:apps/<APP-ID>
         ```
+
         Note: Type `NEW_APP` if you are experiencing issues while creating a new Amplify application
     validations:
       required: true
@@ -85,14 +86,21 @@ body:
         - Access control
         - Access logs
         - Backend builds
+        - Backend environments
         - Build settings
+        - Billing
+        - CDK
         - CloudWatch metrics
         - CloudWatch alarms
+        - CloudFormation
+        - Console
         - Custom build image
+        - Custom domain
         - Custom headers
         - Deployments
         - E2E Cypress tests
         - Environment variables
+        - Environment secrets
         - Frontend builds
         - Git providers
         - Manual deploys
@@ -107,6 +115,48 @@ body:
         - Web previews
         - Webhooks
         - Not Applicable
+    validations:
+      required: true
+  
+  - type: dropdown
+    attributes:
+      label: Frontend framework
+      description: Which frontend framework is your app built upon?
+      multiple: false
+      options:
+        - "Angular"
+        - "Gatsby"
+        - "Hugo"
+        - "JavaScript"
+        - "Jekyll"
+        - "Next.js"
+        - "React"
+        - "Remix"
+        - "Svelte"
+        - "Vite"
+        - "Vue"
+        - "Other"
+    validations:
+      required: true
+      
+
+  - type: input
+    attributes:
+      label: Next.js version
+      placeholder: Review the `next` dependency version in your `package.json` file
+      description: If your app is built using the Next.js framework, please include the current Next.js version of your app. If your app is using any other framework, type `N/A`.
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Next.js router
+      description: Which router does your Next.js app use? If your app is using any other framework, select `N/A`.
+      multiple: false
+      options:
+        - "App Router"
+        - "Pages Router"
+        - "N/A"
     validations:
       required: true
 
