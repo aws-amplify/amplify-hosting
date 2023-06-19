@@ -129,28 +129,29 @@ body:
         - "Hugo"
         - "JavaScript"
         - "Jekyll"
-        - "Nextjs"
+        - "Next.js"
         - "React"
         - "Remix"
         - "Svelte"
         - "Vite"
         - "Vue"
+        - "Other"
     validations:
       required: true
       
 
   - type: input
     attributes:
-      label: Nextjs version
-      placeholder: Review the next dependency version in your package.json file
-      description: If your app is built using the Nextjs framework, please include the current Nextjs version of your app. If your app is using any other framework, type `N/A`.
+      label: Next.js version
+      placeholder: Review the `next` dependency version in your `package.json` file
+      description: If your app is built using the Next.js framework, please include the current Next.js version of your app. If your app is using any other framework, type `N/A`.
     validations:
       required: true
 
   - type: dropdown
     attributes:
-      label: Nextjs router
-      description: What kind of router does your Nextjs app use? If your app is using any other framework, select `N/A`.
+      label: Next.js router
+      description: Which router does your Next.js app use? If your app is using any other framework, select `N/A`.
       multiple: false
       options:
         - "App Router"
