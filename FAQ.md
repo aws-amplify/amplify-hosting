@@ -96,7 +96,7 @@ ssh-keygen -f deploy_key -N ""
 2. Encode it and copy the output into an Environment Variable in the Amplify Hosting (e.g. DEPLOY_KEY)
 
 ```sh
-cat deploy_key | base64 | tr -d n
+cat deploy_key | base64 | tr -d '\n'
 ```
 
 3. Add the contents of `deploy_key.pub` to the access keys of the private repo that you want to access
