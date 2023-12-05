@@ -31,7 +31,7 @@ jobs:
           exclude-any-issue-labels: ""
           add-issue-labels: "archived"
           remove-issue-labels: ""
-          issue-comment: "This issue has been automatically locked since there has not been any recent activity after it was closed. Please open a new issue for related bugs."
+          issue-comment: "This issue has been automatically locked."
           issue-lock-reason: ""
           pr-inactive-days: "0"
           exclude-pr-created-before: ""
