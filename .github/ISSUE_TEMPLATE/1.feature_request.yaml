@@ -1,10 +1,10 @@
 name: 🚀 Feature request
-description: Have an idea for the Amplify Hosting? Submit a request.
+description: Have an idea for the AWS Amplify Hosting team? Submit a request.
 labels: ["feature-request"]
 body:
   - type: markdown
     attributes:
-      value: “This repository only accepts new feature requests for AWS Amplify Hosting. For technical support, we encourage you to open a case with [![AWS technical support]()](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#creating-a-support-case) if you have AWS support plan. If you do not have an active AWS support plan, we encourage you to leverage our Amplify community [![Discord server]()](https://discord.gg/amplify) where community members and staff try to help each other with Amplify.”
+      value: “This repository only accepts new feature requests for AWS Amplify Hosting. For technical support, we encourage you to open a case with [AWS technical support](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#creating-a-support-case) if you have AWS support plan. If you do not have an active AWS support plan, we encourage you to leverage our Amplify community [Discord server](https://discord.gg/amplify) where community members and staff try to help each other with Amplify.”
 
   - type: markdown
     attributes:
