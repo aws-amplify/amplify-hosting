@@ -8,14 +8,15 @@
   </a>
 </p>
 
-#### This repository only accepts new feature requests for AWS Amplify Hosting. For technical support, we encourage you to open a case with [AWS technical support](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#creating-a-support-case) if you have AWS support plan. If you do not have an active AWS support plan, we encourage you to leverage our Amplify community [Discord server](https://discord.gg/amplify) where community members and staff try to help each other with Amplify.
-
 ### Reporting Bugs/Feature Requests
 
 [![Open Bugs](https://img.shields.io/github/issues/aws-amplify/amplify-hosting/bug?color=d73a4a&label=bugs)](https://github.com/aws-amplify/amplify-hosting/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 [![Open Questions](https://img.shields.io/github/issues/aws-amplify/amplify-hosting/question?color=558dfd&label=questions)](https://github.com/aws-amplify/amplify-hosting/issues?q=is%3Aissue+label%3A%22question%22+is%3Aopen+)
 [![Feature Requests](https://img.shields.io/github/issues/aws-amplify/amplify-hosting/feature-request?color=ff9001&label=feature%20requests)](https://github.com/aws-amplify/amplify-hosting/issues?q=is%3Aissue+label%3Afeature-request+is%3Aopen)
 [![Closed Issues](https://img.shields.io/github/issues-closed/aws-amplify/amplify-hosting?color=%2325CC00&label=issues%20closed)](https://github.com/aws-amplify/amplify-hosting/issues?q=is%3Aissue+is%3Aclosed+)
+
+> [!NOTE]
+> This repository only accepts new feature requests for AWS Amplify Hosting. For technical support, we encourage you to open a case with [AWS technical support](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#creating-a-support-case) if you have AWS support plan. If you do not have an active AWS support plan, we encourage you to leverage our Amplify community [Discord server](https://discord.gg/amplify) where community members and staff try to help each other with Amplify.
 
 # AWS Amplify Hosting
 
