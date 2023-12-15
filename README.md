@@ -8,6 +8,8 @@
   </a>
 </p>
 
+### This repository only accepts new feature requests for AWS Amplify Hosting. For technical support, we encourage you to open a case with ![AWS technical support](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#creating-a-support-case) if you have AWS support plan. If you do not have an active AWS support plan, we encourage you to leverage our Amplify community ![Discord server](https://discord.gg/amplify) where community members and staff try to help each other with Amplify.
+
 ### Reporting Bugs/Feature Requests
 
 [![Open Bugs](https://img.shields.io/github/issues/aws-amplify/amplify-hosting/bug?color=d73a4a&label=bugs)](https://github.com/aws-amplify/amplify-hosting/issues?q=is%3Aissue+is%3Aopen+label%3Abug)

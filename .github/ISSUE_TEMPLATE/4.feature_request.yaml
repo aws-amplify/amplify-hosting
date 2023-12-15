@@ -4,6 +4,10 @@ labels: ["feature-request"]
 body:
   - type: markdown
     attributes:
+      value: “## This repository only accepts new feature requests for AWS Amplify Hosting. For technical support, we encourage you to open a case with ![AWS technical support](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#creating-a-support-case) if you have AWS support plan. If you do not have an active AWS support plan, we encourage you to leverage our Amplify community ![Discord server](https://discord.gg/amplify) where community members and staff try to help each other with Amplify.”
+
+  - type: markdown
+    attributes:
       value: |
         Thanks for taking the time to fill out this questionaire! Try to include as much information as you can.
 
@@ -19,60 +23,8 @@ body:
           required: true
         - label: I have [searched for duplicate or closed issues](https://github.com/aws-amplify/amplify-hosting/issues?q=is%3Aissue+).
           required: true
-        - label: I have read the guide for [submitting questions](https://github.com/aws-amplify/amplify-hosting/blob/master/CONTRIBUTING.md).
-          required: true
         - label: I have removed any sensitive information from my code snippets and submission.
           required: true
-
-  - type: markdown
-    attributes:
-      value: |
-        ## Amplify Environment
-  - type: input
-    attributes:
-      label: App Id
-      description: |
-        ```
-        Find the App Id in the last portion of your URL. For example:
-
-        https://console.aws.amazon.com/amplify/home?region=<AWS-REGION>#/<APP-ID>
-
-        OR
-
-        Within the Amplify Console, navigate to App Settings -> General -> App Arn, and inspect the last portion of the identifier:
-
-        arn:aws:amplify:AWS-REGION:accountId:apps/<APP-ID>
-        ```
-        Note: Type `NEW_APP` if you are experiencing issues while creating a new Amplify application
-    validations:
-      required: true
-
-  - type: dropdown
-    attributes:
-      label: AWS Region
-      multiple: false
-      options:
-        - us-east-1
-        - us-east-2
-        - us-west-1
-        - us-west-2
-        - ap-south-1
-        - ap-southeast-1
-        - ap-southeast-2
-        - ap-northeast-1
-        - ap-northeast-2
-        - ap-east-1
-        - ca-central-1
-        - eu-west-1
-        - eu-west-2
-        - eu-west-3
-        - eu-central-1
-        - eu-south-1
-        - eu-north-1
-        - sa-east-1
-        - me-south-1
-    validations:
-      required: true
 
   - type: dropdown
     attributes:
