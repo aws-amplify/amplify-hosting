@@ -15,6 +15,9 @@
 [![Feature Requests](https://img.shields.io/github/issues/aws-amplify/amplify-hosting/feature-request?color=ff9001&label=feature%20requests)](https://github.com/aws-amplify/amplify-hosting/issues?q=is%3Aissue+label%3Afeature-request+is%3Aopen)
 [![Closed Issues](https://img.shields.io/github/issues-closed/aws-amplify/amplify-hosting?color=%2325CC00&label=issues%20closed)](https://github.com/aws-amplify/amplify-hosting/issues?q=is%3Aissue+is%3Aclosed+)
 
+> [!NOTE]
+> This repository only accepts new feature requests for AWS Amplify Hosting. For technical support, we encourage you to open a case with [AWS technical support](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#creating-a-support-case) if you have AWS support plan. If you do not have an active AWS support plan, we encourage you to leverage our Amplify community [Discord server](https://discord.gg/amplify) where community members and staff try to help each other with Amplify.
+
 # AWS Amplify Hosting
 
 AWS Amplify Hosting provides a git-based workflow for hosting full-stack serverless web apps with continuous deployment. This repository provides:
