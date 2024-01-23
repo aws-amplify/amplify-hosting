@@ -2,10 +2,10 @@ blank_issues_enabled: false
 contact_links:
   - name: Bug Report
     url: https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#creating-a-support-case
-    about: Reach out to the AWS Support team
-  - name: Have a question? Ask it on the Amplify Community Discord Server
+    about: Bug reports should be raised with the AWS Support team
+  - name: Have a question? Join the Amplify Community Discord Server
     url: https://discord.gg/amplify 
     about: Ask questions and discuss with other community members
-  - name: 📚 Amplify Hosting Documentation
+  - name: Amplify Hosting Documentation
     url: https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html
     about: Official documentation of the Amplify Hosting service
