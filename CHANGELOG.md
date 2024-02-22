@@ -29,3 +29,6 @@ A chronological list of Amplify Hosting releases:
 |  `4/5/2022`  |                                              [GitHub apps](https://aws.amazon.com/about-aws/whats-new/2022/04/aws-amplify-hosting-github-access-workflows/)                                              |
 | `11/17/2022` |                                                           [Fully managed Next.js 13](https://aws.amazon.com/blogs/mobile/amplify-next-js-13/)                                                            |
 | `06/29/2023` |                                      [Support for monorepo frameworks](https://aws.amazon.com/about-aws/whats-new/2023/06/aws-amplify-hosting-monorepo-frameworks/)                                      |
+| `11/16/2023` |                                      [Wildcard subdomains](https://aws.amazon.com/about-aws/whats-new/2023/11/aws-amplify-hosting-supports-wildcard-subdomains/)                                      |
+| `11/20/2023` |                                      [SSR deployment spec](https://aws.amazon.com/about-aws/whats-new/2023/11/aws-amplify-hosting-ssr-additional-frameworks/)                                      |
+| `2/24/2024` |                                      [Custom SSL](https://aws.amazon.com/blogs/mobile/custom-ssl-amplify-hosting/)                                      |
