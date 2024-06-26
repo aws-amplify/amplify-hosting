@@ -286,7 +286,7 @@ frontend:
   ...
 ```
 
-3. Update the build command in your package.json to use `next export`, then commit this to trigger a new non SSR build.
+3. Update the build command in your `next.config.js` to add `output: 'export'` inside the `nextConfig` (`v14.0.0`	**next export** has been **removed** in favor of **"output": "export"**), then commit this to trigger a new non SSR build.
 
 4. Finally, go to the `Rewrites and redirects` tab in the Amplify Hosting, and delete the first rewrite rule that was re-writing to your SSR CloudFront Distribution.
 
