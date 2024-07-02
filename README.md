@@ -12,7 +12,7 @@
 > [!NOTE]
 > This repository only accepts new feature requests for AWS Amplify Hosting. For technical support, we encourage you to open a case with [AWS technical support](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#creating-a-support-case) if you have AWS support plan. If you do not have an active AWS support plan, we encourage you to leverage our Amplify community [Discord server](https://discord.gg/amplify) where community members and staff try to help each other with Amplify.
 
-# AWS Amplify Hosting Feature Tracker
+# [AWS Amplify Hosting Feature Tracker](https://github.com/orgs/aws-amplify/projects/130)
 
 Welcome the Amplify Hosting Feature Request Tracker! [AWS Amplify Hosting](https://aws.amazon.com/amplify/hosting) is a fully managed hosting service for modern web apps on AWS.  We use this board to communicate with our customers on which feature requests we are currently working on, and which ones we are discussing internally. Please feel free to open new Feature Requests on our [GitHub repo](https://github.com/aws-amplify/amplify-hosting) and upvote/comment on existing ones.
 
