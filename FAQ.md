@@ -518,7 +518,7 @@ node-linker=hoisted
 ```
 
 Pnpm is not included in the Amplify default build container. If you are using PNPM as your package manager, you must add a command to install pnpm in the preBuild phase of your app's build settings.
-The following example excerpt from a build specification shows a preBuild phase with a command to install pnpm:
+The following example excerpt from a build specification shows a preBuild phase with a command to install pnpm and monorepo's pnpm install:
 
 ```
 version: 1
@@ -528,6 +528,7 @@ applications:
         preBuild:
           commands:
             - npm install -g pnpm
+            - pnpm install --shamefully-hoist   # Amplify requires hoisted dependencies to be in the root of the node_modules 
 ```
 
 We also introduced the new `buildPath` attribute in the buildSpec. If you want to build your application under the project root folder, you can set buildPath to `/`. Note that the baseDirectory is the relative path of buildPath (if specified).
